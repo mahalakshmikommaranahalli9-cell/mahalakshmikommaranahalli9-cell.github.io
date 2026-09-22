@@ -1,3127 +1,1649 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mahalakshmi Kommaranahalli | CSE Student & Developer</title>
+    <title>Mahalakshmi Kommaranahalli | Developer Portfolio</title>
 
-    <meta name="description"
-        content="Mahalakshmi Kommaranahalli - Computer Science Engineering student, developer and technology enthusiast.">
+    <meta
+        name="description"
+        content="Mahalakshmi Kommaranahalli — CSE student, developer, AI/ML enthusiast and IoT developer."
+    >
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome -->
     <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <style>
-
-        /* =========================================================
-           ROOT
-        ========================================================= */
-
-        :root {
-            --bg: #070812;
-            --bg-soft: #0c0f1d;
-            --card: rgba(255,255,255,0.055);
-            --card-border: rgba(255,255,255,0.10);
-
-            --text: #f7f7ff;
-            --muted: #a8acc3;
-
-            --primary: #8b5cf6;
-            --secondary: #ec4899;
-            --cyan: #22d3ee;
-
-            --shadow:
-                0 20px 60px rgba(0,0,0,0.35);
-
-            --radius: 24px;
-        }
-
-        body.light {
-            --bg: #f6f7fb;
-            --bg-soft: #ffffff;
-            --card: rgba(255,255,255,0.80);
-            --card-border: rgba(20,20,40,0.10);
-
-            --text: #151525;
-            --muted: #626579;
-
-            --shadow:
-                0 20px 50px rgba(40,40,80,0.12);
-        }
-
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-            transition: background .4s ease, color .4s ease;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            width: min(1180px, 92%);
-            margin: auto;
-        }
-
-
-        /* =========================================================
-           BACKGROUND
-        ========================================================= */
-
-        .background {
-            position: fixed;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: -5;
-        }
-
-        .background::before {
-            content: "";
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            top: -250px;
-            left: -220px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(139,92,246,.25),
-                    transparent 65%
-                );
-
-            filter: blur(20px);
-            animation: bgMove 12s ease-in-out infinite alternate;
-        }
-
-        .background::after {
-            content: "";
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            right: -200px;
-            bottom: -250px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(236,72,153,.18),
-                    transparent 65%
-                );
-
-            filter: blur(20px);
-            animation: bgMove2 15s ease-in-out infinite alternate;
-        }
-
-        @keyframes bgMove {
-
-            from {
-                transform: translate(0,0) scale(1);
-            }
-
-            to {
-                transform: translate(180px,120px) scale(1.2);
-            }
-        }
-
-        @keyframes bgMove2 {
-
-            from {
-                transform: translate(0,0) scale(1);
-            }
-
-            to {
-                transform: translate(-140px,-100px) scale(1.25);
-            }
-        }
-
-
-        /* =========================================================
-           PARTICLES
-        ========================================================= */
-
-        .particles span {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: #fff;
-            opacity: .45;
-            box-shadow:
-                0 0 12px rgba(139,92,246,.8);
-
-            animation:
-                particleFloat 8s linear infinite;
-        }
-
-        .particles span:nth-child(1) {
-            left: 8%;
-            top: 20%;
-            animation-delay: 0s;
-        }
-
-        .particles span:nth-child(2) {
-            left: 20%;
-            top: 70%;
-            animation-delay: 2s;
-        }
-
-        .particles span:nth-child(3) {
-            left: 35%;
-            top: 15%;
-            animation-delay: 4s;
-        }
-
-        .particles span:nth-child(4) {
-            left: 55%;
-            top: 75%;
-            animation-delay: 1s;
-        }
-
-        .particles span:nth-child(5) {
-            left: 72%;
-            top: 18%;
-            animation-delay: 3s;
-        }
-
-        .particles span:nth-child(6) {
-            left: 88%;
-            top: 60%;
-            animation-delay: 5s;
-        }
-
-        .particles span:nth-child(7) {
-            left: 45%;
-            top: 45%;
-            animation-delay: 6s;
-        }
-
-        @keyframes particleFloat {
-
-            0% {
-                transform: translateY(0);
-                opacity: .15;
-            }
-
-            50% {
-                transform: translateY(-50px);
-                opacity: .8;
-            }
-
-            100% {
-                transform: translateY(0);
-                opacity: .15;
-            }
-        }
-
-
-        /* =========================================================
-           NAVBAR
-        ========================================================= */
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-
-            background: rgba(7,8,18,.72);
-            backdrop-filter: blur(18px);
-
-            border-bottom:
-                1px solid rgba(255,255,255,.07);
-        }
-
-        body.light .navbar {
-            background: rgba(255,255,255,.75);
-        }
-
-        .nav-container {
-            min-height: 76px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            width: 46px;
-            height: 46px;
-
-            border-radius: 14px;
-
-            display: grid;
-            place-items: center;
-
-            font-family: Poppins;
-            font-weight: 800;
-            font-size: 18px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    var(--secondary)
-                );
-
-            color: white;
-
-            box-shadow:
-                0 10px 30px rgba(139,92,246,.3);
-
-            transition: .3s;
-        }
-
-        .logo:hover {
-            transform: rotate(-8deg) scale(1.08);
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .nav-link {
-            position: relative;
-
-            font-size: 14px;
-            font-weight: 600;
-
-            color: var(--muted);
-
-            transition: .3s;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--text);
-        }
-
-        .nav-link::after {
-            content: "";
-
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-
-            width: 0;
-            height: 2px;
-
-            border-radius: 10px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--primary),
-                    var(--secondary)
-                );
-
-            transition: .3s;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .theme-btn,
-        .menu-btn {
-            border: 0;
-            cursor: pointer;
-
-            width: 42px;
-            height: 42px;
-
-            border-radius: 50%;
-
-            display: grid;
-            place-items: center;
-
-            color: var(--text);
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            transition: .3s;
-        }
-
-        .theme-btn:hover,
-        .menu-btn:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary);
-        }
-
-        .menu-btn {
-            display: none;
-        }
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            min-height: 100vh;
-
-            padding-top: 130px;
-            padding-bottom: 90px;
-
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1.05fr .95fr;
-            align-items: center;
-            gap: 70px;
-        }
-
-        .hero-content {
-            animation: heroText 1s ease both;
-        }
-
-        @keyframes heroText {
-
-            from {
-                opacity: 0;
-                transform: translateY(35px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hello-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-
-            padding: 9px 16px;
-
-            border-radius: 100px;
-
-            background: rgba(139,92,246,.10);
-            border: 1px solid rgba(139,92,246,.28);
-
-            color: #c4b5fd;
-
-            font-size: 14px;
-            font-weight: 600;
-
-            margin-bottom: 22px;
-        }
-
-        .hello-badge span {
-            animation: wave 2s infinite;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-
-            0%,100% {
-                transform: rotate(0);
-            }
-
-            25% {
-                transform: rotate(18deg);
-            }
-
-            75% {
-                transform: rotate(-12deg);
-            }
-        }
-
-        .hero h1 {
-            font-family: Poppins;
-            font-size: clamp(42px, 6vw, 72px);
-            line-height: 1.04;
-            letter-spacing: -2px;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 span {
-            display: block;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #a78bfa,
-                    #f472b6,
-                    #67e8f9
-                );
-
-            background-size: 200% auto;
-
-            -webkit-background-clip: text;
-            background-clip: text;
-
-            color: transparent;
-
-            animation: gradientText 5s linear infinite;
-        }
-
-        @keyframes gradientText {
-
-            to {
-                background-position: 200% center;
-            }
-        }
-
-        .hero h2 {
-            font-size: 18px;
-            color: var(--muted);
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-
-        .hero h2 span {
-            color: var(--primary);
-            margin: 0 5px;
-        }
-
-        .hero-description {
-            max-width: 650px;
-
-            color: var(--muted);
-
-            font-size: 16px;
-            line-height: 1.8;
-
-            margin-bottom: 32px;
-        }
-
-
-        /* =========================================================
-           BUTTONS
-        ========================================================= */
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-
-            padding: 14px 22px;
-
-            border-radius: 14px;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            transition:
-                transform .3s,
-                box-shadow .3s,
-                border .3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-        }
-
-        .btn-primary {
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    var(--secondary)
-                );
-
-            box-shadow:
-                0 15px 35px rgba(139,92,246,.28);
-        }
-
-        .btn-primary:hover {
-            box-shadow:
-                0 20px 45px rgba(236,72,153,.32);
-        }
-
-        .btn-outline {
-            color: var(--text);
-
-            border: 1px solid var(--card-border);
-            background: var(--card);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary);
-        }
-
-
-        /* =========================================================
-           SOCIAL
-        ========================================================= */
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .social-links a {
-            width: 43px;
-            height: 43px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 13px;
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            color: var(--muted);
-
-            transition: .3s;
-        }
-
-        .social-links a:hover {
-            color: white;
-
-            transform:
-                translateY(-6px)
-                rotate(-4deg);
-
-            border-color: var(--primary);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    var(--secondary)
-                );
-
-            box-shadow:
-                0 12px 25px rgba(139,92,246,.3);
-        }
-
-
-        /* =========================================================
-           HERO PHOTO
-        ========================================================= */
-
-        .hero-image-area {
-            position: relative;
-
-            min-height: 560px;
-
-            display: grid;
-            place-items: center;
-
-            animation:
-                photoEntrance 1.2s .2s ease both;
-        }
-
-        @keyframes photoEntrance {
-
-            from {
-                opacity: 0;
-                transform: scale(.9) translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .photo-glow {
-            position: absolute;
-
-            width: 430px;
-            height: 430px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(139,92,246,.32),
-                    rgba(236,72,153,.16),
-                    transparent 70%
-                );
-
-            filter: blur(25px);
-
-            animation: glowPulse 5s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-
-            0%,100% {
-                transform: scale(.9);
-                opacity: .7;
-            }
-
-            50% {
-                transform: scale(1.12);
-                opacity: 1;
-            }
-        }
-
-        .photo-frame {
-            position: relative;
-
-            width: min(390px, 85vw);
-            height: 500px;
-
-            padding: 8px;
-
-            border-radius: 190px 190px 35px 35px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(167,139,250,.9),
-                    rgba(236,72,153,.8),
-                    rgba(34,211,238,.7)
-                );
-
-            box-shadow:
-                0 35px 90px rgba(0,0,0,.5),
-                0 0 60px rgba(139,92,246,.2);
-
-            animation:
-                photoFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes photoFloat {
-
-            0%,100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-12px) rotate(1deg);
-            }
-        }
-
-        .photo-inner {
-            width: 100%;
-            height: 100%;
-
-            overflow: hidden;
-
-            border-radius:
-                185px 185px 29px 29px;
-
-            background: #111;
-
-            position: relative;
-        }
-
-        .photo-inner::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent 55%,
-                    rgba(7,8,18,.35)
-                );
-
-            pointer-events: none;
-        }
-
-        .photo-inner img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            object-position: center 30%;
-
-            transition: transform .8s ease;
-        }
-
-        .photo-frame:hover .photo-inner img {
-            transform: scale(1.05);
-        }
-
-        .photo-label {
-            position: absolute;
-
-            right: -25px;
-            bottom: 45px;
-
-            padding: 14px 18px;
-
-            border-radius: 17px;
-
-            background:
-                rgba(15,17,32,.85);
-
-            backdrop-filter: blur(15px);
-
-            border:
-                1px solid rgba(255,255,255,.12);
-
-            box-shadow: var(--shadow);
-
-            animation: labelFloat 4s ease-in-out infinite;
-        }
-
-        .photo-label strong {
-            display: block;
-            font-size: 14px;
-        }
-
-        .photo-label span {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        @keyframes labelFloat {
-
-            0%,100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-9px);
-            }
-        }
-
-
-        /* =========================================================
-           SECTION
-        ========================================================= */
-
-        .section {
-            padding: 110px 0;
-            position: relative;
-        }
-
-        .section-heading {
-            margin-bottom: 55px;
-        }
-
-        .section-heading > span {
-            display: inline-block;
-
-            font-size: 12px;
-            font-weight: 800;
-
-            letter-spacing: 3px;
-
-            color: #a78bfa;
-
-            margin-bottom: 12px;
-        }
-
-        .section-heading h2 {
-            font-family: Poppins;
-
-            font-size:
-                clamp(30px, 4vw, 45px);
-
-            letter-spacing: -1px;
-        }
-
-        .section-heading strong {
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--primary),
-                    var(--secondary)
-                );
-
-            -webkit-background-clip: text;
-            background-clip: text;
-
-            color: transparent;
-        }
-
-
-        /* =========================================================
-           ABOUT
-        ========================================================= */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 35px;
-        }
-
-        .about-text p {
-            color: var(--muted);
-            line-height: 1.9;
-            margin-bottom: 20px;
-        }
-
-        .small-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-
-            margin-top: 10px;
-
-            color: #c4b5fd;
-            font-weight: 700;
-
-            transition: .3s;
-        }
-
-        .small-btn:hover {
-            gap: 16px;
-            color: var(--secondary);
-        }
-
-        .about-card,
-        .contact-card {
-            padding: 28px;
-
-            border-radius: var(--radius);
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            backdrop-filter: blur(15px);
-
-            box-shadow: var(--shadow);
-        }
-
-        .info-item {
-            display: flex;
-            gap: 15px;
-
-            padding: 18px 0;
-
-            border-bottom:
-                1px solid var(--card-border);
-        }
-
-        .info-item:last-child {
-            border-bottom: 0;
-        }
-
-        .info-icon {
-            width: 43px;
-            height: 43px;
-
-            flex-shrink: 0;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 13px;
-
-            color: #c4b5fd;
-
-            background:
-                rgba(139,92,246,.12);
-        }
-
-        .info-item small {
-            display: block;
-
-            color: var(--muted);
-
-            margin-bottom: 4px;
-        }
-
-        .info-item strong {
-            line-height: 1.5;
-        }
-
-
-        /* =========================================================
-           EDUCATION
-        ========================================================= */
-
-        .education-line {
-            position: relative;
-
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-
-            gap: 25px;
-        }
-
-        .education-line::before {
-            content: "";
-
-            position: absolute;
-
-            top: 38px;
-            left: 10%;
-            right: 10%;
-
-            height: 1px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--primary),
-                    var(--secondary),
-                    var(--cyan)
-                );
-
-            opacity: .4;
-        }
-
-        .education-card {
-            position: relative;
-            z-index: 1;
-
-            padding: 30px;
-
-            border-radius: var(--radius);
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            backdrop-filter: blur(15px);
-
-            transition: .35s;
-        }
-
-        .education-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(139,92,246,.5);
-
-            box-shadow:
-                0 25px 60px rgba(0,0,0,.25);
-        }
-
-        .education-icon {
-            width: 55px;
-            height: 55px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 16px;
-
-            margin-bottom: 22px;
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    var(--secondary)
-                );
-        }
-
-        .education-icon.blue {
-            background:
-                linear-gradient(
-                    135deg,
-                    #06b6d4,
-                    #3b82f6
-                );
-        }
-
-        .education-icon.green {
-            background:
-                linear-gradient(
-                    135deg,
-                    #10b981,
-                    #22c55e
-                );
-        }
-
-        .education-year {
-            display: inline-block;
-
-            padding: 6px 10px;
-
-            border-radius: 100px;
-
-            font-size: 11px;
-            font-weight: 700;
-
-            color: #c4b5fd;
-
-            background:
-                rgba(139,92,246,.1);
-
-            margin-bottom: 15px;
-        }
-
-        .education-card h3 {
-            font-family: Poppins;
-            margin-bottom: 5px;
-        }
-
-        .education-card h4 {
-            color: #c4b5fd;
-            margin-bottom: 10px;
-        }
-
-        .education-card p {
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        .education-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
-            margin-top: 18px;
-
-            padding: 8px 12px;
-
-            border-radius: 10px;
-
-            color: #facc15;
-
-            background: rgba(250,204,21,.08);
-
-            font-size: 12px;
-        }
-
-
-        /* =========================================================
-           SKILLS
-        ========================================================= */
-
-        .skills-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit,minmax(180px,1fr));
-
-            gap: 18px;
-        }
-
-        .skill-card {
-            padding: 25px;
-
-            text-align: center;
-
-            border-radius: 20px;
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            transition:
-                transform .35s,
-                border .35s,
-                box-shadow .35s;
-        }
-
-        .skill-card i {
-            font-size: 30px;
-
-            margin-bottom: 15px;
-
-            color: #a78bfa;
-
-            transition: .35s;
-        }
-
-        .skill-card h3 {
-            font-size: 15px;
-            margin-bottom: 5px;
-        }
-
-        .skill-card p {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        .skill-card:hover {
-            transform:
-                translateY(-9px)
-                scale(1.02);
-
-            border-color: rgba(139,92,246,.55);
-
-            box-shadow:
-                0 20px 45px rgba(0,0,0,.25);
-        }
-
-        .skill-card:hover i {
-            transform:
-                scale(1.2)
-                rotate(8deg);
-
-            color: var(--secondary);
-        }
-
-
-        /* =========================================================
-           PROJECTS
-        ========================================================= */
-
-        .projects-heading {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .view-all {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-
-            color: #c4b5fd;
-            font-weight: 700;
-
-            transition: .3s;
-        }
-
-        .view-all:hover {
-            gap: 15px;
-            color: var(--secondary);
-        }
-
-        .projects-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit,minmax(280px,1fr));
-
-            gap: 22px;
-        }
-
-        .project-card {
-            overflow: hidden;
-
-            border-radius: var(--radius);
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            transition:
-                transform .35s,
-                border .35s,
-                box-shadow .35s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-
-            border-color:
-                rgba(139,92,246,.5);
-
-            box-shadow:
-                0 25px 60px rgba(0,0,0,.28);
-        }
-
-        .project-image {
-            height: 170px;
-
-            display: grid;
-            place-items: center;
-
-            font-size: 48px;
-
-            color: white;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image::before {
-            content: "";
-
-            position: absolute;
-            inset: -80px;
-
-            background:
-                conic-gradient(
-                    transparent,
-                    rgba(255,255,255,.2),
-                    transparent 30%
-                );
-
-            animation: projectSpin 6s linear infinite;
-        }
-
-        .project-image i {
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes projectSpin {
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .project-one {
-            background:
-                linear-gradient(
-                    135deg,
-                    #7c3aed,
-                    #ec4899
-                );
-        }
-
-        .project-two {
-            background:
-                linear-gradient(
-                    135deg,
-                    #2563eb,
-                    #06b6d4
-                );
-        }
-
-        .project-three {
-            background:
-                linear-gradient(
-                    135deg,
-                    #dc2626,
-                    #f97316
-                );
-        }
-
-        .project-four {
-            background:
-                linear-gradient(
-                    135deg,
-                    #059669,
-                    #14b8a6
-                );
-        }
-
-        .project-five {
-            background:
-                linear-gradient(
-                    135deg,
-                    #4f46e5,
-                    #8b5cf6
-                );
-        }
-
-        .project-body {
-            padding: 25px;
-        }
-
-        .project-body h3 {
-            font-family: Poppins;
-            margin-bottom: 10px;
-        }
-
-        .project-body p {
-            color: var(--muted);
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-
-            margin: 18px 0;
-        }
-
-        .project-tags span {
-            padding: 6px 9px;
-
-            border-radius: 8px;
-
-            font-size: 10px;
-            font-weight: 700;
-
-            color: #c4b5fd;
-
-            background:
-                rgba(139,92,246,.1);
-
-            border:
-                1px solid rgba(139,92,246,.15);
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            color: #c4b5fd;
-
-            font-size: 13px;
-            font-weight: 700;
-
-            transition: .3s;
-        }
-
-        .project-link:hover {
-            color: var(--secondary);
-            gap: 12px;
-        }
-
-
-        /* =========================================================
-           ACHIEVEMENTS
-        ========================================================= */
-
-        .achievement-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap: 20px;
-        }
-
-        .achievement-card {
-            display: flex;
-            gap: 18px;
-
-            padding: 25px;
-
-            border-radius: var(--radius);
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            transition: .35s;
-        }
-
-        .achievement-card:hover {
-            transform: translateX(7px);
-            border-color: rgba(139,92,246,.5);
-        }
-
-        .achievement-icon {
-            width: 50px;
-            height: 50px;
-
-            flex-shrink: 0;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 15px;
-
-            color: #c4b5fd;
-
-            background:
-                rgba(139,92,246,.12);
-        }
-
-        .achievement-card h3 {
-            margin-bottom: 8px;
-        }
-
-        .achievement-card p {
-            color: var(--muted);
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-
-        /* =========================================================
-           CONTACT
-        ========================================================= */
-
-        .contact-container {
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 35px;
-        }
-
-        .contact-text h3 {
-            font-family: Poppins;
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
-        .contact-text > p {
-            color: var(--muted);
-            line-height: 1.8;
-            max-width: 500px;
-            margin-bottom: 25px;
-        }
-
-        .contact-socials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .contact-socials a {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-
-            padding: 11px 15px;
-
-            border-radius: 12px;
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            color: var(--muted);
-
-            font-size: 13px;
-
-            transition: .3s;
-        }
-
-        .contact-socials a:hover {
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    var(--secondary)
-                );
-
-            transform: translateY(-4px);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-
-            padding: 18px 0;
-
-            border-bottom:
-                1px solid var(--card-border);
-        }
-
-        .contact-item:last-child {
-            border-bottom: 0;
-        }
-
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 13px;
-
-            color: #c4b5fd;
-
-            background:
-                rgba(139,92,246,.1);
-        }
-
-        .contact-item small {
-            display: block;
-            color: var(--muted);
-            margin-bottom: 4px;
-        }
-
-        .contact-item a {
-            font-weight: 600;
-            word-break: break-word;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            border-top:
-                1px solid var(--card-border);
-
-            padding: 30px 0;
-        }
-
-        .footer-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .footer-logo {
-            width: 40px;
-            height: 40px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 12px;
-
-            font-weight: 800;
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary),
-                    var(--secondary)
-                );
-        }
-
-        footer p {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        .top-btn {
-            width: 40px;
-            height: 40px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 12px;
-
-            background: var(--card);
-            border: 1px solid var(--card-border);
-
-            transition: .3s;
-        }
-
-        .top-btn:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-        }
-
-
-        /* =========================================================
-           SCROLL REVEAL
-        ========================================================= */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(45px);
-
-            transition:
-                opacity .8s ease,
-                transform .8s ease;
-        }
-
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 900px) {
-
-            .nav-menu {
-                position: absolute;
-
-                top: 76px;
-                left: 4%;
-                right: 4%;
-
-                display: none;
-                flex-direction: column;
-
-                padding: 25px;
-
-                border-radius: 20px;
-
-                background:
-                    rgba(12,15,29,.96);
-
-                border:
-                    1px solid var(--card-border);
-
-                backdrop-filter: blur(20px);
-
-                box-shadow: var(--shadow);
-            }
-
-            body.light .nav-menu {
-                background: rgba(255,255,255,.96);
-            }
-
-            .nav-menu.open {
-                display: flex;
-            }
-
-            .menu-btn {
-                display: grid;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content {
-                order: 1;
-            }
-
-            .hero-image-area {
-                order: 0;
-                min-height: 500px;
-            }
-
-            .hero-buttons,
-            .social-links {
-                justify-content: center;
-            }
-
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .about-grid,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .education-line {
-                grid-template-columns: 1fr;
-            }
-
-            .education-line::before {
-                display: none;
-            }
-
-            .achievement-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-heading {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            .container {
-                width: 90%;
-            }
-
-            .section {
-                padding: 80px 0;
-            }
-
-            .hero {
-                padding-top: 110px;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-                letter-spacing: -1.5px;
-            }
-
-            .hero h2 {
-                font-size: 15px;
-                line-height: 1.8;
-            }
-
-            .hero-image-area {
-                min-height: 440px;
-            }
-
-            .photo-frame {
-                width: 290px;
-                height: 390px;
-            }
-
-            .photo-label {
-                right: -8px;
-                bottom: 30px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .skill-card {
-                padding: 20px 10px;
-            }
-
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .contact-socials {
-                flex-direction: column;
-            }
-
-            .contact-socials a {
-                justify-content: center;
-            }
-        }
-
-    </style>
-
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-    <!-- BACKGROUND -->
+<!-- =========================================================
+     LOADER
+========================================================= -->
 
-    <div class="background"></div>
+<div class="page-loader" id="pageLoader">
+    <div class="loader-logo">MK</div>
+    <div class="loader-line"></div>
+    <p>Loading portfolio...</p>
+</div>
 
-    <div class="particles">
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        <span>M</span>K
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#notes">VTU Notes</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <div class="nav-actions">
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+        >
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<main>
+
+<section class="hero section" id="home">
+
+    <div class="hero-bg-grid"></div>
+
+    <div class="hero-container">
+
+        <!-- LEFT -->
+        <div class="hero-content reveal">
+
+            <div class="hello-badge">
+                <span class="hello-dot"></span>
+                Hello, I'm
+            </div>
+
+            <!-- SIGNATURE -->
+            <div class="signature-wrap">
+                <div class="signature-name">
+                    Mahalakshmi
+                </div>
+
+                <div class="signature-line"></div>
+            </div>
+
+            <h1>
+                Kommaranahalli
+            </h1>
+
+            <div class="hero-role">
+                <span>CSE Student</span>
+                <b>•</b>
+                <span>Developer</span>
+                <b>•</b>
+                <span>Problem Solver</span>
+            </div>
+
+            <p class="hero-description">
+                I build websites, interactive games, AI/ML projects,
+                IoT systems and useful digital solutions while learning
+                and experimenting with new technologies.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+            <div class="hero-socials">
+
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell"
+                    target="_blank"
+                    aria-label="GitHub"
+                >
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
+                    target="_blank"
+                    aria-label="LinkedIn"
+                >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+                <a
+                    href="https://www.instagram.com/its_me_mahaaaa__/"
+                    target="_blank"
+                    aria-label="Instagram"
+                >
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT / PHOTO -->
+        <div class="hero-visual reveal">
+
+            <div class="hero-glow"></div>
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="image-ring">
+
+                <div class="ring-decoration"></div>
+
+                <div class="profile-image">
+
+                    <img
+                        src="profile.jpg"
+                        alt="Mahalakshmi Kommaranahalli"
+                    >
+
+                </div>
+
+            </div>
+
+            <div class="floating-card card-one">
+                <i class="fa-solid fa-code"></i>
+                <span>Developer</span>
+            </div>
+
+            <div class="floating-card card-two">
+                <i class="fa-solid fa-brain"></i>
+                <span>AI / ML</span>
+            </div>
+
+            <div class="floating-card card-three">
+                <i class="fa-solid fa-microchip"></i>
+                <span>IoT</span>
+            </div>
+
+            <span class="floating-dot dot-one"></span>
+            <span class="floating-dot dot-two"></span>
+            <span class="floating-dot dot-three"></span>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-indicator">
         <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        Scroll to explore
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="section about-section" id="about">
+
+    <div class="section-heading reveal">
+
+        <span class="section-label">01 — ABOUT</span>
+
+        <h2>
+            A student who loves
+            <span>building things.</span>
+        </h2>
+
+        <p>
+            I enjoy turning ideas into websites, applications,
+            games and technology projects.
+        </p>
+
     </div>
 
 
-    <!-- NAVBAR -->
+    <div class="about-grid">
 
-    <header class="navbar">
-
-        <div class="container nav-container">
-
-            <a href="#home" class="logo">
-                MK
-            </a>
-
-            <nav class="nav-menu" id="navMenu">
-
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#achievements" class="nav-link">Achievements</a>
-                <a href="#contact" class="nav-link">Contact</a>
-
-            </nav>
-
-            <div style="display:flex;gap:10px;align-items:center;">
-
-                <button class="theme-btn" id="themeBtn">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-
-                <button class="menu-btn" id="menuBtn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- HOME -->
-
-    <main>
-
-        <section class="hero" id="home">
-
-            <div class="container hero-container">
-
-                <div class="hero-content">
-
-                    <div class="hello-badge">
-                        <span>👋</span>
-                        Hi, I'm
-                    </div>
-
-                    <h1>
-                        Mahalakshmi
-                        <span>Kommaranahalli</span>
-                    </h1>
-
-                    <h2>
-                        CSE Student
-                        <span>|</span>
-                        Developer
-                        <span>|</span>
-                        Problem Solver
-                    </h2>
-
-                    <p class="hero-description">
-                        I am a passionate Computer Science Engineering student
-                        who enjoys building useful digital solutions,
-                        exploring new technologies and turning ideas into
-                        real-world projects.
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <a href="#projects" class="btn btn-primary">
-                            <i class="fa-solid fa-code"></i>
-                            View My Work
-                        </a>
-
-                        <a href="#contact" class="btn btn-outline">
-                            <i class="fa-regular fa-envelope"></i>
-                            Contact Me
-                        </a>
-
-                    </div>
-
-                    <div class="social-links">
-
-                        <a href="https://github.com/mahalakshmikommaranahalli9-cell"
-                           target="_blank">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-
-                        <a href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
-                           target="_blank">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-
-                        <a href="https://www.instagram.com/its_me_mahaaaa__/"
-                           target="_blank">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PHOTO -->
-
-                <div class="hero-image-area">
-
-                    <div class="photo-glow"></div>
-
-                    <div class="photo-frame">
-
-                        <div class="photo-inner">
-
-                            <img
-                                src="profile.jpg"
-                                alt="Mahalakshmi Kommaranahalli">
-
-                        </div>
-
-                        <div class="photo-label">
-
-                            <strong>✨ CSE Student</strong>
-
-                            <span>
-                                Building • Learning • Growing
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-
-        <section class="section reveal" id="about">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span>ABOUT ME</span>
-
-                    <h2>
-                        Get to know <strong>me!</strong>
-                    </h2>
-
-                </div>
-
-                <div class="about-grid">
-
-                    <div class="about-text">
-
-                        <p>
-                            I'm a Computer Science and Engineering student
-                            with a strong interest in Web Development,
-                            Artificial Intelligence, Machine Learning and IoT.
-                        </p>
-
-                        <p>
-                            I enjoy turning ideas into practical projects
-                            and continuously improving my programming and
-                            problem-solving skills.
-                        </p>
-
-                        <p>
-                            I'm always eager to learn new technologies,
-                            experiment with new ideas and take on challenging
-                            development projects.
-                        </p>
-
-                        <a href="#contact" class="small-btn">
-                            More About Me
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-
-                    </div>
-
-
-                    <div class="about-card">
-
-                        <div class="info-item">
-
-                            <div class="info-icon">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-
-                            <div>
-                                <small>Name</small>
-
-                                <strong>
-                                    Mahalakshmi<br>
-                                    Kommaranahalli
-                                </strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="info-item">
-
-                            <div class="info-icon">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-
-                            <div>
-                                <small>Study</small>
-
-                                <strong>
-                                    B.E. in CSE<br>
-                                    Jain Institute of Technology
-                                </strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="info-item">
-
-                            <div class="info-icon">
-                                <i class="fa-solid fa-code"></i>
-                            </div>
-
-                            <div>
-                                <small>Focus</small>
-
-                                <strong>
-                                    Web Development<br>
-                                    AI/ML & IoT
-                                </strong>
-                            </div>
-
-                        </div>
-
-
-                        <div class="info-item">
-
-                            <div class="info-icon">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-
-                            <div>
-                                <small>Location</small>
-
-                                <strong>
-                                    Davanagere,<br>
-                                    Karnataka, India
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- EDUCATION -->
-
-        <section class="section reveal" id="education">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span>EDUCATION</span>
-
-                    <h2>
-                        My Academic <strong>Journey</strong>
-                    </h2>
-
-                </div>
-
-
-                <div class="education-line">
-
-
-                    <article class="education-card">
-
-                        <div class="education-icon">
-                            <i class="fa-solid fa-building-columns"></i>
-                        </div>
-
-                        <span class="education-year">
-                            2024 - Present
-                        </span>
-
-                        <h3>
-                            Bachelor of Engineering
-                        </h3>
-
-                        <h4>
-                            Computer Science & Engineering
-                        </h4>
-
-                        <p>
-                            Jain Institute of Technology,
-                            Davanagere
-                        </p>
-
-                        <div class="education-badge">
-                            <i class="fa-solid fa-star"></i>
-                            2nd Year CGPA:
-                            <strong>8.6</strong>
-                        </div>
-
-                    </article>
-
-
-                    <article class="education-card">
-
-                        <div class="education-icon blue">
-                            <i class="fa-solid fa-school"></i>
-                        </div>
-
-                        <span class="education-year">
-                            2022 - 2024
-                        </span>
-
-                        <h3>
-                            Pre-University Course
-                        </h3>
-
-                        <h4>
-                            Science
-                        </h4>
-
-                        <p>
-                            Sir M V PU College
-                        </p>
-
-                    </article>
-
-
-                    <article class="education-card">
-
-                        <div class="education-icon green">
-                            <i class="fa-solid fa-book-open"></i>
-                        </div>
-
-                        <span class="education-year">
-                            2020 - 2022
-                        </span>
-
-                        <h3>
-                            SSLC
-                        </h3>
-
-                        <h4>
-                            Secondary School
-                        </h4>
-
-                        <p>
-                            Sri Gurudeva High School
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- SKILLS -->
-
-        <section class="section reveal" id="skills">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span>SKILLS</span>
-
-                    <h2>
-                        My Technical <strong>Toolbox</strong>
-                    </h2>
-
-                </div>
-
-
-                <div class="skills-grid">
-
-                    <div class="skill-card">
-                        <i class="fa-solid fa-code"></i>
-                        <h3>C / C++</h3>
-                        <p>Programming</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-brands fa-java"></i>
-                        <h3>Java</h3>
-                        <p>Programming</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-brands fa-python"></i>
-                        <h3>Python</h3>
-                        <p>Programming</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-brands fa-html5"></i>
-                        <h3>HTML</h3>
-                        <p>Web</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-brands fa-css3-alt"></i>
-                        <h3>CSS</h3>
-                        <p>Web</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-brands fa-js"></i>
-                        <h3>JavaScript</h3>
-                        <p>Web</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-brands fa-php"></i>
-                        <h3>PHP</h3>
-                        <p>Backend</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-solid fa-database"></i>
-                        <h3>MySQL</h3>
-                        <p>Database</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-brands fa-github"></i>
-                        <h3>GitHub</h3>
-                        <p>Version Control</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <i class="fa-solid fa-microchip"></i>
-                        <h3>ESP32</h3>
-                        <p>IoT</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROJECTS -->
-
-        <section class="section reveal" id="projects">
-
-            <div class="container">
-
-                <div class="section-heading projects-heading">
-
-                    <div>
-
-                        <span>PROJECTS</span>
-
-                        <h2>
-                            Things I've <strong>Built</strong>
-                        </h2>
-
-                    </div>
-
-                    <a
-                        href="https://github.com/mahalakshmikommaranahalli9-cell"
-                        target="_blank"
-                        class="view-all">
-
-                        View GitHub
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </a>
-
-                </div>
-
-
-                <div class="projects-grid">
-
-
-                    <article class="project-card">
-
-                        <div class="project-image project-one">
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-
-                        <div class="project-body">
-
-                            <h3>
-                                Alumni Meet Website
-                            </h3>
-
-                            <p>
-                                An attractive alumni invitation website
-                                with event information, RSVP functionality,
-                                location and QR code.
-                            </p>
-
-                            <div class="project-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-
-                            <a
-                                href="https://mahalakshmikommaranahalli9-cell.github.io/alumni-invitation/"
-                                target="_blank"
-                                class="project-link">
-
-                                Live Project
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card">
-
-                        <div class="project-image project-two">
-                            <i class="fa-solid fa-building-columns"></i>
-                        </div>
-
-                        <div class="project-body">
-
-                            <h3>
-                                College Management System
-                            </h3>
-
-                            <p>
-                                A web-based management system designed
-                                to manage students, staff, courses and
-                                college information.
-                            </p>
-
-                            <div class="project-tags">
-                                <span>PHP</span>
-                                <span>MySQL</span>
-                                <span>JavaScript</span>
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card">
-
-                        <div class="project-image project-three">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-
-                        <div class="project-body">
-
-                            <h3>
-                                Password Strength Analyzer
-                            </h3>
-
-                            <p>
-                                A machine learning project using
-                                classification techniques to analyze
-                                password strength.
-                            </p>
-
-                            <div class="project-tags">
-                                <span>Python</span>
-                                <span>ML</span>
-                                <span>Naive Bayes</span>
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card">
-
-                        <div class="project-image project-four">
-                            <i class="fa-solid fa-tower-broadcast"></i>
-                        </div>
-
-                        <div class="project-body">
-
-                            <h3>
-                                LoRa IoT Project
-                            </h3>
-
-                            <p>
-                                ESP32 and LoRa based wireless communication
-                                project with OLED display integration.
-                            </p>
-
-                            <div class="project-tags">
-                                <span>ESP32</span>
-                                <span>LoRa</span>
-                                <span>IoT</span>
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card">
-
-                        <div class="project-image project-five">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-
-                        <div class="project-body">
-
-                            <h3>
-                                Developer Dashboard
-                            </h3>
-
-                            <p>
-                                Personal productivity dashboard with
-                                tasks, Pomodoro timer, coding activity
-                                and productivity tracking.
-                            </p>
-
-                            <div class="project-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-
-                            <a
-                                href="https://mahalakshmikommaranahalli9-cell.github.io/student-dashboard/"
-                                target="_blank"
-                                class="project-link">
-
-                                Live Project
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ACHIEVEMENTS -->
-
-        <section class="section reveal" id="achievements">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span>ACHIEVEMENTS</span>
-
-                    <h2>
-                        Learning & <strong>Growth</strong>
-                    </h2>
-
-                </div>
-
-
-                <div class="achievement-grid">
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                Web Development
-                            </h3>
-
-                            <p>
-                                Building responsive websites and
-                                interactive web applications.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            <i class="fa-solid fa-brain"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                AI / Machine Learning
-                            </h3>
-
-                            <p>
-                                Exploring machine learning algorithms
-                                and practical AI projects.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            <i class="fa-solid fa-microchip"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                IoT Development
-                            </h3>
-
-                            <p>
-                                Working with ESP32, LoRa and embedded
-                                hardware projects.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="achievement-card">
-
-                        <div class="achievement-icon">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                GitHub Projects
-                            </h3>
-
-                            <p>
-                                Maintaining and publishing personal
-                                development projects.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTACT -->
-
-        <section class="section reveal" id="contact">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span>CONTACT</span>
-
-                    <h2>
-                        Let's <strong>Connect!</strong>
-                    </h2>
-
-                </div>
-
-
-                <div class="contact-container">
-
-                    <div class="contact-text">
-
-                        <h3>
-                            Have a project idea?
-                        </h3>
-
-                        <p>
-                            I'm always interested in learning,
-                            collaborating and discussing new project ideas.
-                        </p>
-
-                        <div class="contact-socials">
-
-                            <a
-                                href="https://github.com/mahalakshmikommaranahalli9-cell"
-                                target="_blank">
-
-                                <i class="fa-brands fa-github"></i>
-                                GitHub
-
-                            </a>
-
-                            <a
-                                href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
-                                target="_blank">
-
-                                <i class="fa-brands fa-linkedin"></i>
-                                LinkedIn
-
-                            </a>
-
-                            <a
-                                href="https://www.instagram.com/its_me_mahaaaa__/"
-                                target="_blank">
-
-                                <i class="fa-brands fa-instagram"></i>
-                                Instagram
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="contact-card">
-
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                <i class="fa-brands fa-github"></i>
-                            </div>
-
-                            <div>
-
-                                <small>GitHub</small>
-
-                                <a
-                                    href="https://github.com/mahalakshmikommaranahalli9-cell"
-                                    target="_blank">
-
-                                    @mahalakshmikommaranahalli9-cell
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                <i class="fa-brands fa-linkedin"></i>
-                            </div>
-
-                            <div>
-
-                                <small>LinkedIn</small>
-
-                                <a
-                                    href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
-                                    target="_blank">
-
-                                    Mahalakshmi Kommaranahalli
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                <i class="fa-brands fa-instagram"></i>
-                            </div>
-
-                            <div>
-
-                                <small>Instagram</small>
-
-                                <a
-                                    href="https://www.instagram.com/its_me_mahaaaa__/"
-                                    target="_blank">
-
-                                    @its_me_mahaaaa__
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="container footer-container">
-
-            <div class="footer-logo">
-                MK
-            </div>
+        <div class="about-text reveal">
 
             <p>
-                © 2026 Mahalakshmi Kommaranahalli.
-                All Rights Reserved.
+                I'm <strong>Mahalakshmi Kommaranahalli</strong>,
+                a Computer Science & Engineering student at
+                Jain Institute of Technology, Davanagere.
             </p>
 
-            <a href="#home" class="top-btn">
-                <i class="fa-solid fa-arrow-up"></i>
-            </a>
+            <p>
+                My interests include web development, programming,
+                artificial intelligence, machine learning, IoT and
+                interactive digital experiences.
+            </p>
+
+            <p>
+                I learn by building projects — from small experiments
+                and college mini-projects to games, AI systems,
+                full-stack applications and IoT prototypes.
+            </p>
+
+            <p>
+                I also maintain a collection of
+                <strong>VTU CSE course notes</strong> to make
+                semester preparation easier.
+            </p>
 
         </div>
 
-    </footer>
 
+        <div class="about-card reveal">
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
+            <div class="about-card-icon">
+                <i class="fa-solid fa-laptop-code"></i>
+            </div>
 
-    <script>
+            <h3>What I Like Building</h3>
 
-        /* =====================================================
-           MOBILE MENU
-        ===================================================== */
+            <div class="interest-list">
 
-        const menuBtn =
-            document.getElementById("menuBtn");
+                <div>
+                    <i class="fa-solid fa-globe"></i>
+                    <span>Web Applications</span>
+                </div>
 
-        const navMenu =
-            document.getElementById("navMenu");
+                <div>
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Interactive Games</span>
+                </div>
 
-        menuBtn.addEventListener("click", () => {
+                <div>
+                    <i class="fa-solid fa-brain"></i>
+                    <span>AI / ML Projects</span>
+                </div>
 
-            navMenu.classList.toggle("open");
+                <div>
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>IoT & ESP32</span>
+                </div>
 
-            const icon =
-                menuBtn.querySelector("i");
+                <div>
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Learning Resources</span>
+                </div>
 
-            if (navMenu.classList.contains("open")) {
+            </div>
 
-                icon.classList.remove("fa-bars");
-                icon.classList.add("fa-xmark");
+        </div>
 
-            } else {
+    </div>
 
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
+</section>
 
-            }
 
-        });
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
 
+<section class="section education-section" id="education">
 
-        /* CLOSE MOBILE MENU */
+    <div class="section-heading reveal">
 
-        document.querySelectorAll(".nav-link")
-            .forEach(link => {
+        <span class="section-label">02 — EDUCATION</span>
 
-                link.addEventListener("click", () => {
+        <h2>
+            My academic
+            <span>journey.</span>
+        </h2>
 
-                    navMenu.classList.remove("open");
+    </div>
 
-                    const icon =
-                        menuBtn.querySelector("i");
 
-                    icon.classList.remove("fa-xmark");
-                    icon.classList.add("fa-bars");
+    <div class="timeline">
 
-                });
+        <div class="timeline-item reveal">
 
-            });
+            <div class="timeline-dot"></div>
 
+            <div class="timeline-content">
 
-        /* =====================================================
-           THEME
-        ===================================================== */
+                <span class="timeline-date">
+                    2024 — Present
+                </span>
 
-        const themeBtn =
-            document.getElementById("themeBtn");
+                <h3>Bachelor of Engineering</h3>
 
-        const themeIcon =
-            themeBtn.querySelector("i");
+                <h4>
+                    Computer Science & Engineering
+                </h4>
 
-        const savedTheme =
-            localStorage.getItem("maha-theme");
+                <p>
+                    Jain Institute of Technology, Davanagere
+                </p>
 
-        if (savedTheme === "light") {
+                <span class="timeline-badge">
+                    2nd Year CGPA: 8.6
+                </span>
 
-            document.body.classList.add("light");
+            </div>
 
-            themeIcon.classList.remove("fa-moon");
-            themeIcon.classList.add("fa-sun");
+        </div>
 
-        }
 
-        themeBtn.addEventListener("click", () => {
+        <div class="timeline-item reveal">
 
-            document.body.classList.toggle("light");
+            <div class="timeline-dot"></div>
 
-            const isLight =
-                document.body.classList.contains("light");
+            <div class="timeline-content">
 
-            localStorage.setItem(
-                "maha-theme",
-                isLight ? "light" : "dark"
-            );
+                <span class="timeline-date">
+                    2022 — 2024
+                </span>
 
-            if (isLight) {
+                <h3>PUC</h3>
 
-                themeIcon.classList.remove("fa-moon");
-                themeIcon.classList.add("fa-sun");
+                <h4>Science</h4>
 
-            } else {
+                <p>
+                    Sir M V PU College
+                </p>
 
-                themeIcon.classList.remove("fa-sun");
-                themeIcon.classList.add("fa-moon");
+            </div>
 
-            }
+        </div>
 
-        });
 
+        <div class="timeline-item reveal">
 
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
+            <div class="timeline-dot"></div>
 
-        const revealElements =
-            document.querySelectorAll(".reveal");
+            <div class="timeline-content">
 
-        const revealObserver =
-            new IntersectionObserver(
+                <span class="timeline-date">
+                    2020 — 2022
+                </span>
 
-                entries => {
+                <h3>SSLC</h3>
 
-                    entries.forEach(entry => {
+                <p>
+                    Sri Gurudeva High School
+                </p>
 
-                        if (entry.isIntersecting) {
+            </div>
 
-                            entry.target.classList.add("show");
+        </div>
 
-                            revealObserver.unobserve(
-                                entry.target
-                            );
+    </div>
 
-                        }
+</section>
 
-                    });
 
-                },
+<!-- =========================================================
+     FEATURED PROJECTS
+========================================================= -->
 
-                {
-                    threshold: 0.12
-                }
+<section class="section projects-section" id="projects">
 
-            );
+    <div class="section-heading reveal">
 
-        revealElements.forEach(element => {
+        <span class="section-label">03 — PROJECTS</span>
 
-            revealObserver.observe(element);
+        <h2>
+            Things I've
+            <span>built.</span>
+        </h2>
 
-        });
+        <p>
+            A collection of games, AI projects, web applications,
+            IoT experiments and academic projects.
+        </p>
 
+    </div>
 
-        /* =====================================================
-           ACTIVE NAVIGATION
-        ===================================================== */
 
-        const sections =
-            document.querySelectorAll("section[id]");
+    <!-- GAMES -->
 
-        const navLinks =
-            document.querySelectorAll(".nav-link");
+    <div class="project-category reveal">
 
-        window.addEventListener("scroll", () => {
+        <div class="category-title">
 
-            let current = "";
+            <span class="category-icon">
+                🎮
+            </span>
 
-            sections.forEach(section => {
+            <div>
+                <span>FEATURED CATEGORY</span>
+                <h3>Games</h3>
+            </div>
 
-                const sectionTop =
-                    section.offsetTop - 150;
+        </div>
 
-                if (window.scrollY >= sectionTop) {
+    </div>
 
-                    current = section.getAttribute("id");
 
-                }
+    <div class="projects-grid">
 
-            });
 
-            navLinks.forEach(link => {
+        <!-- ARROWHEAD -->
 
-                link.classList.remove("active");
+        <article class="project-card featured-project reveal">
 
-                if (
-                    link.getAttribute("href") ===
-                    "#" + current
-                ) {
+            <div class="project-number">
+                01
+            </div>
 
-                    link.classList.add("active");
+            <div class="project-icon game-icon">
+                <i class="fa-solid fa-arrow-pointer"></i>
+            </div>
 
-                }
+            <span class="project-type">
+                GAME • JAVASCRIPT
+            </span>
 
-            });
+            <h3>
+                ARROWHEAD
+            </h3>
 
-        });
+            <h4>
+                Infinite Logic
+            </h4>
 
+            <p>
+                An interactive logic game built around arrow-based
+                puzzles, levels, timing, lives, rewards and
+                progressively challenging gameplay.
+            </p>
 
-        /* =====================================================
-           PHOTO MOUSE PARALLAX
-        ===================================================== */
+            <div class="tech-tags">
 
-        const photoFrame =
-            document.querySelector(".photo-frame");
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>PWA</span>
 
-        document.addEventListener("mousemove", event => {
+            </div>
 
-            if (window.innerWidth < 900) return;
+            <div class="project-links">
 
-            const x =
-                (window.innerWidth / 2 - event.clientX) / 80;
+                <a
+                    href="https://mahalakshmikommaranahalli9-cell.github.io/arrowhead/"
+                    target="_blank"
+                >
+                    Play Game
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
 
-            const y =
-                (window.innerHeight / 2 - event.clientY) / 80;
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell/arrowhead"
+                    target="_blank"
+                    class="secondary-link"
+                >
+                    GitHub
+                </a>
 
-            photoFrame.style.transform =
-                `translate(${x}px, ${y}px)`;
+            </div>
 
-        });
+        </article>
 
-        document.addEventListener("mouseleave", () => {
 
-            photoFrame.style.transform =
-                "translate(0,0)";
+        <!-- ARROW 19.09 -->
 
-        });
+        <article class="project-card reveal">
 
+            <div class="project-number">
+                02
+            </div>
 
-        /* =====================================================
-           BUTTON RIPPLE
-        ===================================================== */
+            <div class="project-icon game-icon">
+                <i class="fa-solid fa-gamepad"></i>
+            </div>
 
-        document.querySelectorAll(".btn")
-            .forEach(button => {
+            <span class="project-type">
+                GAME • WEB
+            </span>
 
-                button.addEventListener("click", function(e) {
+            <h3>
+                ARROW // 19.09
+            </h3>
 
-                    const ripple =
-                        document.createElement("span");
+            <p>
+                An interactive arrow-based puzzle experience
+                featuring custom levels, progressive challenges
+                and animated gameplay.
+            </p>
 
-                    ripple.style.position = "absolute";
-                    ripple.style.width = "10px";
-                    ripple.style.height = "10px";
-                    ripple.style.borderRadius = "50%";
-                    ripple.style.background = "rgba(255,255,255,.4)";
-                    ripple.style.transform = "scale(0)";
-                    ripple.style.pointerEvents = "none";
+            <div class="tech-tags">
 
-                    const rect =
-                        this.getBoundingClientRect();
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
 
-                    ripple.style.left =
-                        (e.clientX - rect.left) + "px";
+            </div>
 
-                    ripple.style.top =
-                        (e.clientY - rect.top) + "px";
+            <div class="project-links">
 
-                    this.style.position = "relative";
-                    this.style.overflow = "hidden";
+                <a
+                    href="https://mahalakshmikommaranahalli9-cell.github.io/arrow-19-09/"
+                    target="_blank"
+                >
+                    Play Game
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
 
-                    this.appendChild(ripple);
+            </div>
 
-                    ripple.animate(
-                        [
-                            {
-                                transform: "scale(0)",
-                                opacity: 1
-                            },
-                            {
-                                transform: "scale(30)",
-                                opacity: 0
-                            }
-                        ],
-                        {
-                            duration: 600,
-                            easing: "ease-out"
-                        }
-                    );
+        </article>
 
-                    setTimeout(() => {
+    </div>
 
-                        ripple.remove();
 
-                    }, 650);
+    <!-- AI / ML -->
 
-                });
+    <div class="project-category reveal">
 
-            });
+        <div class="category-title">
 
+            <span class="category-icon">
+                🤖
+            </span>
 
-        /* =====================================================
-           PROJECT CARD TILT
-        ===================================================== */
+            <div>
+                <span>ARTIFICIAL INTELLIGENCE</span>
+                <h3>AI / ML Projects</h3>
+            </div>
 
-        document.querySelectorAll(".project-card")
-            .forEach(card => {
+        </div>
 
-                card.addEventListener("mousemove", event => {
+    </div>
 
-                    if (window.innerWidth < 900) return;
 
-                    const rect =
-                        card.getBoundingClientRect();
+    <div class="projects-grid">
 
-                    const x =
-                        event.clientX - rect.left;
 
-                    const y =
-                        event.clientY - rect.top;
+        <!-- LANDSLIDE -->
 
-                    const rotateX =
-                        ((y / rect.height) - .5) * -5;
+        <article class="project-card featured-project reveal">
 
-                    const rotateY =
-                        ((x / rect.width) - .5) * 5;
+            <div class="project-number">
+                03
+            </div>
 
-                    card.style.transform =
-                        `perspective(800px)
-                         rotateX(${rotateX}deg)
-                         rotateY(${rotateY}deg)
-                         translateY(-8px)`;
+            <div class="project-icon">
+                <i class="fa-solid fa-mountain"></i>
+            </div>
 
-                });
+            <span class="project-type">
+                AI / ML • EARLY WARNING
+            </span>
 
-                card.addEventListener("mouseleave", () => {
+            <h3>
+                Landslide Sentinel AI
+            </h3>
 
-                    card.style.transform =
-                        "";
+            <p>
+                AI-based early warning and landslide risk monitoring
+                system designed to analyse environmental information
+                and support risk-monitoring workflows.
+            </p>
 
-                });
+            <div class="tech-tags">
 
-            });
+                <span>Python</span>
+                <span>Flask</span>
+                <span>Pandas</span>
+                <span>Scikit-learn</span>
 
-    </script>
+            </div>
+
+            <div class="project-links">
+
+                <a
+                    href="https://mahalakshmikommaranahalli9-cell.github.io/Landslide-Sentinel-AI/"
+                    target="_blank"
+                >
+                    Live Project
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell/Landslide-Sentinel-AI"
+                    target="_blank"
+                    class="secondary-link"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- TRUST VISION -->
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                04
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-eye"></i>
+            </div>
+
+            <span class="project-type">
+                COMPUTER VISION • SECURITY
+            </span>
+
+            <h3>
+                TRUST-VISION
+            </h3>
+
+            <p>
+                A computer vision integrity assurance concept for
+                trustworthy data, models and inference outputs in
+                multi-contributor pipelines.
+            </p>
+
+            <div class="tech-tags">
+
+                <span>Python</span>
+                <span>OpenCV</span>
+                <span>FastAPI</span>
+                <span>AI</span>
+
+            </div>
+
+            <div class="project-links">
+
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell"
+                    target="_blank"
+                >
+                    View GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- PASSWORD ANALYZER -->
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                05
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <span class="project-type">
+                MACHINE LEARNING
+            </span>
+
+            <h3>
+                Password Strength Analyzer
+            </h3>
+
+            <p>
+                A machine-learning based project for analysing
+                password strength using classification techniques.
+            </p>
+
+            <div class="tech-tags">
+
+                <span>Python</span>
+                <span>ML</span>
+                <span>Naive Bayes</span>
+
+            </div>
+
+            <div class="project-links">
+
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell"
+                    target="_blank"
+                >
+                    GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <!-- WEB -->
+
+    <div class="project-category reveal">
+
+        <div class="category-title">
+
+            <span class="category-icon">
+                🌐
+            </span>
+
+            <div>
+                <span>WEB DEVELOPMENT</span>
+                <h3>Web Applications</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                06
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+
+            <span class="project-type">
+                WEB APPLICATION
+            </span>
+
+            <h3>SmartForm</h3>
+
+            <p>
+                A web-based form builder and publishing platform
+                for creating and managing interactive forms.
+            </p>
+
+            <div class="tech-tags">
+
+                <span>React</span>
+                <span>Vite</span>
+                <span>JavaScript</span>
+
+            </div>
+
+            <div class="project-links">
+
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell"
+                    target="_blank"
+                >
+                    GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                07
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-people-group"></i>
+            </div>
+
+            <span class="project-type">
+                FULL STACK
+            </span>
+
+            <h3>
+                Campus Volunteer Management
+            </h3>
+
+            <p>
+                A volunteer-management application connecting
+                frontend and backend services for campus activities.
+            </p>
+
+            <div class="tech-tags">
+
+                <span>JavaScript</span>
+                <span>Node.js</span>
+                <span>Backend</span>
+
+            </div>
+
+            <div class="project-links">
+
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell"
+                    target="_blank"
+                >
+                    GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                08
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <span class="project-type">
+                WEB APPLICATION
+            </span>
+
+            <h3>
+                Student Dashboard
+            </h3>
+
+            <p>
+                A student-focused dashboard featuring a focus timer,
+                theme controls and a clean productivity interface.
+            </p>
+
+            <div class="tech-tags">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+
+            </div>
+
+            <div class="project-links">
+
+                <a
+                    href="https://mahalakshmikommaranahalli9-cell.github.io/student-dashboard/"
+                    target="_blank"
+                >
+                    Live Demo
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                09
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-hospital"></i>
+            </div>
+
+            <span class="project-type">
+                WEB / DATABASE
+            </span>
+
+            <h3>
+                CampusHub
+            </h3>
+
+            <p>
+                A college management system developed to manage
+                campus-related information using a web interface
+                and database.
+            </p>
+
+            <div class="tech-tags">
+
+                <span>PHP</span>
+                <span>MySQL</span>
+                <span>JavaScript</span>
+
+            </div>
+
+            <div class="project-links">
+
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell"
+                    target="_blank"
+                >
+                    GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <!-- IOT -->
+
+    <div class="project-category reveal">
+
+        <div class="category-title">
+
+            <span class="category-icon">
+                🔌
+            </span>
+
+            <div>
+                <span>HARDWARE + SOFTWARE</span>
+                <h3>IoT Projects</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">
+                10
+            </div>
+
+            <div class="project-icon">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            <span class="project-type">
+                ESP32 • LORA • IOT
+            </span>
+
+            <h3>
+                Smart Irrigation / IoT
+            </h3>
+
+            <p>
+                An ESP32 and LoRa based IoT project involving
+                environmental monitoring and sensor-based data.
+            </p>
+
+            <div class="tech-tags">
+
+                <span>ESP32</span>
+                <span>LoRa</span>
+                <span>OLED</span>
+                <span>Sensors</span>
+
+            </div>
+
+            <div class="project-links">
+
+                <a
+                    href="https://github.com/mahalakshmikommaranahalli9-cell"
+                    target="_blank"
+                >
+                    GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VTU NOTES
+========================================================= -->
+
+<section class="section notes-section" id="notes">
+
+    <div class="section-heading reveal">
+
+        <span class="section-label">04 — VTU NOTES</span>
+
+        <h2>
+            Learn. Build.
+            <span>Share.</span>
+        </h2>
+
+        <p>
+            My semester notes and study resources for
+            Computer Science & Engineering.
+        </p>
+
+    </div>
+
+
+    <div class="notes-banner reveal">
+
+        <div class="notes-banner-icon">
+            <i class="fa-solid fa-book-open"></i>
+        </div>
+
+        <div>
+
+            <span>5TH SEMESTER</span>
+
+            <h3>
+                Computer Science & Engineering
+            </h3>
+
+            <p>
+                Jain Institute of Technology, Davanagere
+            </p>
+
+        </div>
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="btn btn-primary"
+        >
+            Open Notes
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+
+    <div class="notes-grid">
+
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+
+            <span>BCS501</span>
+
+            <i class="fa-solid fa-file-code"></i>
+
+            <h3>
+                Software Engineering
+            </h3>
+
+            <p>
+                Software Engineering and Project Management
+            </p>
+
+            <strong>
+                Open Notes →
+            </strong>
+
+        </a>
+
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+
+            <span>BCS502</span>
+
+            <i class="fa-solid fa-network-wired"></i>
+
+            <h3>
+                Computer Networks
+            </h3>
+
+            <p>
+                Computer Networks study material
+            </p>
+
+            <strong>
+                Open Notes →
+            </strong>
+
+        </a>
+
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+
+            <span>BCS503</span>
+
+            <i class="fa-solid fa-infinity"></i>
+
+            <h3>
+                Theory of Computation
+            </h3>
+
+            <p>
+                Finite Automata, DFA, NFA and more
+            </p>
+
+            <strong>
+                Open Notes →
+            </strong>
+
+        </a>
+
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+
+            <span>BCS515B</span>
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h3>
+                Artificial Intelligence
+            </h3>
+
+            <p>
+                AI concepts and semester resources
+            </p>
+
+            <strong>
+                Open Notes →
+            </strong>
+
+        </a>
+
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+
+            <span>BCSL504</span>
+
+            <i class="fa-solid fa-code"></i>
+
+            <h3>
+                Web Technology Lab
+            </h3>
+
+            <p>
+                Practical web technology resources
+            </p>
+
+            <strong>
+                Open Notes →
+            </strong>
+
+        </a>
+
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+
+            <span>BCS586</span>
+
+            <i class="fa-solid fa-flask"></i>
+
+            <h3>
+                Mini Project
+            </h3>
+
+            <p>
+                Project-related learning resources
+            </p>
+
+            <strong>
+                Open Notes →
+            </strong>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section class="section skills-section" id="skills">
+
+    <div class="section-heading reveal">
+
+        <span class="section-label">05 — SKILLS</span>
+
+        <h2>
+            Technologies I
+            <span>work with.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill-card reveal">
+            <i class="fa-solid fa-code"></i>
+            <h3>Programming</h3>
+            <p>C / C++ • Java • Python</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <i class="fa-solid fa-globe"></i>
+            <h3>Web Development</h3>
+            <p>HTML • CSS • JavaScript • PHP</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <i class="fa-solid fa-database"></i>
+            <h3>Database</h3>
+            <p>MySQL • SQLite</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <i class="fa-solid fa-brain"></i>
+            <h3>AI / ML</h3>
+            <p>Scikit-learn • Pandas • OpenCV</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <i class="fa-brands fa-github"></i>
+            <h3>Development</h3>
+            <p>Git • GitHub • GitHub Pages</p>
+        </div>
+
+        <div class="skill-card reveal">
+            <i class="fa-solid fa-microchip"></i>
+            <h3>IoT</h3>
+            <p>ESP32 • LoRa • OLED • Sensors</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CURRENTLY BUILDING
+========================================================= -->
+
+<section class="section building-section">
+
+    <div class="building-box reveal">
+
+        <div class="building-left">
+
+            <span class="section-label">
+                CURRENTLY BUILDING
+            </span>
+
+            <h2>
+                Always learning.
+                <span>Always building.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="building-list">
+
+            <div>
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Interactive Games</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-brain"></i>
+                <span>AI & Computer Vision</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-globe"></i>
+                <span>Web Applications</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-book"></i>
+                <span>VTU Learning Resources</span>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-microchip"></i>
+                <span>IoT Experiments</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ACHIEVEMENTS
+========================================================= -->
+
+<section class="section achievements-section" id="achievements">
+
+    <div class="section-heading reveal">
+
+        <span class="section-label">06 — ACHIEVEMENTS</span>
+
+        <h2>
+            Learning through
+            <span>projects.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="achievement-grid">
+
+        <div class="achievement-card reveal">
+
+            <span class="achievement-number">
+                01
+            </span>
+
+            <i class="fa-solid fa-code"></i>
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+                Built multiple websites, dashboards and
+                interactive web applications.
+            </p>
+
+        </div>
+
+
+        <div class="achievement-card reveal">
+
+            <span class="achievement-number">
+                02
+            </span>
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h3>
+                AI / ML
+            </h3>
+
+            <p>
+                Developed machine-learning and computer-vision
+                project experiments.
+            </p>
+
+        </div>
+
+
+        <div class="achievement-card reveal">
+
+            <span class="achievement-number">
+                03
+            </span>
+
+            <i class="fa-solid fa-gamepad"></i>
+
+            <h3>
+                Game Development
+            </h3>
+
+            <p>
+                Created interactive browser games with
+                JavaScript-based game logic.
+            </p>
+
+        </div>
+
+
+        <div class="achievement-card reveal">
+
+            <span class="achievement-number">
+                04
+            </span>
+
+            <i class="fa-solid fa-microchip"></i>
+
+            <h3>
+                IoT Development
+            </h3>
+
+            <p>
+                Worked with ESP32, LoRa, sensors and OLED
+                hardware components.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GITHUB
+========================================================= -->
+
+<section class="section github-section">
+
+    <div class="github-box reveal">
+
+        <div class="github-icon">
+            <i class="fa-brands fa-github"></i>
+        </div>
+
+        <div class="github-content">
+
+            <span>
+                OPEN SOURCE • PROJECTS • EXPERIMENTS
+            </span>
+
+            <h2>
+                Explore my work on GitHub.
+            </h2>
+
+            <p>
+                Projects, experiments, websites, games and
+                development work are available on my GitHub profile.
+            </p>
+
+        </div>
+
+        <a
+            href="https://github.com/mahalakshmikommaranahalli9-cell"
+            target="_blank"
+            class="btn btn-primary"
+        >
+            Visit GitHub
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="section-heading reveal">
+
+        <span class="section-label">07 — CONTACT</span>
+
+        <h2>
+            Let's connect
+            <span>and build.</span>
+        </h2>
+
+        <p>
+            Have an idea, project or opportunity?
+            Feel free to connect with me.
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid reveal">
+
+        <a
+            href="https://github.com/mahalakshmikommaranahalli9-cell"
+            target="_blank"
+            class="contact-card"
+        >
+
+            <i class="fa-brands fa-github"></i>
+
+            <div>
+                <span>GitHub</span>
+                <strong>View my projects</strong>
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+        </a>
+
+
+        <a
+            href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
+            target="_blank"
+            class="contact-card"
+        >
+
+            <i class="fa-brands fa-linkedin-in"></i>
+
+            <div>
+                <span>LinkedIn</span>
+                <strong>Connect with me</strong>
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+        </a>
+
+
+        <a
+            href="https://www.instagram.com/its_me_mahaaaa__/"
+            target="_blank"
+            class="contact-card"
+        >
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <div>
+                <span>Instagram</span>
+                <strong>Follow me</strong>
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-logo">
+        MK
+    </div>
+
+    <p>
+        Designed & built by
+        <strong>Mahalakshmi Kommaranahalli</strong>
+    </p>
+
+    <p class="copyright">
+        © 2026 Mahalakshmi Kommaranahalli. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- Back to top -->
+
+<button
+    class="back-to-top"
+    id="backToTop"
+    aria-label="Back to top"
+>
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+
+<!-- Main JavaScript -->
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
