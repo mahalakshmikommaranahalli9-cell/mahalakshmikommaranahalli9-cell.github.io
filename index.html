@@ -1,38 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        name="description"
+        content="Mahalakshmi Kommaranahalli — Computer Science Engineering student, developer and creator."
     >
 
     <title>Mahalakshmi Kommaranahalli | Portfolio</title>
 
-    <meta
-        name="description"
-        content="Mahalakshmi Kommaranahalli - Computer Science Engineering student and developer."
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
     >
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-
 <!-- =====================================================
-     ANIMATED BACKGROUND
+     PAGE TEXTURE
 ===================================================== -->
 
-<canvas id="networkCanvas"></canvas>
-
-<div class="floating-dot dot1"></div>
-<div class="floating-dot dot2"></div>
-<div class="floating-dot dot3"></div>
+<div class="page-noise"></div>
 
 
 <!-- =====================================================
@@ -41,28 +38,48 @@
 
 <header class="navbar" id="navbar">
 
-    <a href="#home" class="signature">
+    <a href="#home" class="brand">
 
-        <span class="signature-main">
-            Mahalakshmi
+        <span class="brand-mark">
+            MK
         </span>
 
-        <span class="signature-last">
-            Kommaranahalli
+        <span class="signature">
+            Mahalakshmi
         </span>
 
     </a>
 
 
-    <nav id="navMenu">
+    <nav class="nav-menu" id="navMenu">
 
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#notes">VTU Notes</a>
-        <a href="#contact">Contact</a>
+        <a class="active" href="#home">
+            Home
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#education">
+            Education
+        </a>
+
+        <a href="#skills">
+            Skills
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#notes">
+            VTU Notes
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
 
     </nav>
 
@@ -70,31 +87,43 @@
     <button
         class="menu-button"
         id="menuButton"
-        aria-label="Menu"
+        aria-label="Open menu"
+        aria-expanded="false"
     >
-        ☰
+
+        <span></span>
+        <span></span>
+        <span></span>
+
     </button>
 
 </header>
 
 
 
+<main>
+
 <!-- =====================================================
-     HOME
+     HERO
 ===================================================== -->
 
 <section class="hero" id="home">
 
-    <!-- LEFT SIDE -->
+    <canvas id="networkCanvas"></canvas>
+
+    <div class="hero-grid"></div>
+
+
+    <!-- LEFT -->
 
     <div class="hero-left">
 
-        <div class="hello reveal-left">
-            hi,
-        </div>
+        <p class="eyebrow reveal">
+            HI,
+        </p>
 
 
-        <h1 class="hero-title reveal-left">
+        <h1 class="hero-title reveal">
 
             I'M
 
@@ -102,74 +131,62 @@
                 Mahalakshmi
             </span>
 
+            <small>
+                Kommaranahalli
+            </small>
+
         </h1>
 
 
-        <div class="typing-area reveal-left">
+        <div class="hero-role reveal">
 
-            <span id="typingText"></span>
-
-            <span class="typing-cursor">
-                |
+            <span id="typingText">
+                CSE Student
             </span>
+
+            <i></i>
 
         </div>
 
 
-        <p class="hero-description reveal-left">
+        <p class="hero-description reveal">
 
-            Computer Science Engineering student passionate
-            about building creative software, solving problems,
-            exploring AI and creating meaningful digital
-            experiences.
+            I build websites, interactive experiences
+            and technology projects while exploring
+            AI, machine learning and IoT.
 
         </p>
 
 
-        <!-- BUTTONS -->
-
-        <div class="hero-buttons reveal-left">
+        <div class="hero-actions reveal">
 
             <a
-                href="https://github.com/mahalakshmikommaranahalli9-cell"
-                target="_blank"
-                class="hero-btn red-btn"
+                class="btn btn-primary"
+                href="#projects"
             >
-                GitHub
-                <span>↗</span>
+                Explore Projects
+                <b>↗</b>
             </a>
 
 
             <a
-                href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
-                target="_blank"
-                class="hero-btn red-btn"
-            >
-                LinkedIn
-                <span>↗</span>
-            </a>
-
-
-            <a
+                class="btn btn-outline"
                 href="#contact"
-                class="hero-btn outline-btn"
             >
-                Contact
-                <span>↗</span>
+                Let's Connect
+                <b>↗</b>
             </a>
 
         </div>
 
 
-        <div class="scroll-text reveal-left">
+        <div class="hero-scroll reveal">
+
+            <span class="scroll-line"></span>
 
             <span>
-                Scroll to explore
+                SCROLL TO EXPLORE
             </span>
-
-            <div class="scroll-arrow">
-                ↓
-            </div>
 
         </div>
 
@@ -177,24 +194,16 @@
 
 
 
-    <!-- RIGHT SIDE -->
+    <!-- RIGHT -->
 
-    <div class="hero-right reveal-right">
+    <div class="hero-right reveal">
 
+        <div class="blob blob-main"></div>
 
-        <!-- LARGE RED SHAPE -->
+        <div class="blob blob-small"></div>
 
-        <div class="red-blob"></div>
+        <div class="photo-ring"></div>
 
-
-        <!-- DECORATIVE CIRCLE -->
-
-        <div class="decorative-circle circle-one"></div>
-
-        <div class="decorative-circle circle-two"></div>
-
-
-        <!-- PHOTO -->
 
         <div class="photo-container">
 
@@ -207,42 +216,74 @@
         </div>
 
 
-        <!-- FLOATING BADGES -->
+        <!-- FLOATING CARDS -->
 
-        <div class="floating-badge badge-one">
+        <div class="floating-card card-one">
 
-            <span>💻</span>
+            <span>
+                ✦
+            </span>
 
             <div>
-                <small>BUILDING</small>
-                <strong>Web Apps</strong>
+
+                <small>
+                    EXPLORING
+                </small>
+
+                <strong>
+                    AI / ML
+                </strong>
+
             </div>
 
         </div>
 
 
-        <div class="floating-badge badge-two">
+        <div class="floating-card card-two">
 
-            <span>🤖</span>
+            <span>
+                ⌁
+            </span>
 
             <div>
-                <small>EXPLORING</small>
-                <strong>AI / ML</strong>
+
+                <small>
+                    BUILDING
+                </small>
+
+                <strong>
+                    Web Apps
+                </strong>
+
             </div>
 
         </div>
 
 
-        <div class="floating-badge badge-three">
+        <div class="floating-card card-three">
 
-            <span>🚀</span>
+            <span>
+                ↗
+            </span>
 
             <div>
-                <small>CREATING</small>
-                <strong>Projects</strong>
+
+                <small>
+                    CREATING
+                </small>
+
+                <strong>
+                    Games
+                </strong>
+
             </div>
 
         </div>
+
+
+        <div class="hero-orbit orbit-one"></div>
+
+        <div class="hero-orbit orbit-two"></div>
 
     </div>
 
@@ -256,31 +297,41 @@
 
 <section class="section" id="about">
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
-        <span>01</span>
+        <span>
+            01
+        </span>
 
-        <h2>
-            About Me
-        </h2>
+        <div>
+
+            <small>
+                GET TO KNOW ME
+            </small>
+
+            <h2>
+                About Me
+            </h2>
+
+        </div>
 
     </div>
 
 
-    <div class="about-layout">
+    <div class="about-grid">
 
 
-        <div class="about-main reveal">
+        <div class="about-copy reveal">
 
-            <h3>
+            <p class="big-copy">
 
                 A student who loves
 
-                <span>
+                <em>
                     building things.
-                </span>
+                </em>
 
-            </h3>
+            </p>
 
 
             <p>
@@ -314,11 +365,13 @@
         </div>
 
 
-        <div class="stats reveal">
+        <div class="stat-grid reveal">
 
-            <div class="stat">
+            <div>
 
-                <strong>8.6</strong>
+                <strong>
+                    8.6
+                </strong>
 
                 <span>
                     CGPA
@@ -327,34 +380,40 @@
             </div>
 
 
-            <div class="stat">
+            <div>
 
-                <strong>10+</strong>
+                <strong>
+                    10+
+                </strong>
 
                 <span>
-                    Projects
+                    PROJECTS
                 </span>
 
             </div>
 
 
-            <div class="stat">
+            <div>
 
-                <strong>2</strong>
+                <strong>
+                    2
+                </strong>
 
                 <span>
-                    Games
+                    GAMES
                 </span>
 
             </div>
 
 
-            <div class="stat">
+            <div>
 
-                <strong>∞</strong>
+                <strong>
+                    ∞
+                </strong>
 
                 <span>
-                    Ideas
+                    IDEAS
                 </span>
 
             </div>
@@ -371,29 +430,45 @@
      EDUCATION
 ===================================================== -->
 
-<section class="section light-section" id="education">
+<section
+    class="section soft"
+    id="education"
+>
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
-        <span>02</span>
+        <span>
+            02
+        </span>
 
-        <h2>
-            Education
-        </h2>
+        <div>
+
+            <small>
+                MY JOURNEY
+            </small>
+
+            <h2>
+                Education
+            </h2>
+
+        </div>
 
     </div>
 
 
-    <div class="education-list">
+    <div class="timeline">
 
 
-        <div class="education-card reveal">
+        <article class="timeline-item reveal">
 
-            <div class="education-year">
-                2024 — Present
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-year">
+                2024 — PRESENT
             </div>
 
-            <div>
+
+            <div class="timeline-content">
 
                 <h3>
                     Bachelor of Engineering
@@ -408,31 +483,30 @@
                     Davanagere
                 </p>
 
-                <strong>
+                <b>
                     2nd Year CGPA: 8.6
-                </strong>
+                </b>
 
             </div>
 
-        </div>
+        </article>
 
 
 
-        <div class="education-card reveal">
+        <article class="timeline-item reveal">
 
-            <div class="education-year">
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-year">
                 2022 — 2024
             </div>
 
-            <div>
+
+            <div class="timeline-content">
 
                 <h3>
-                    PUC
+                    PUC — Science
                 </h3>
-
-                <h4>
-                    Science
-                </h4>
 
                 <p>
                     Sir M V PU College
@@ -440,17 +514,20 @@
 
             </div>
 
-        </div>
+        </article>
 
 
 
-        <div class="education-card reveal">
+        <article class="timeline-item reveal">
 
-            <div class="education-year">
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-year">
                 2020 — 2022
             </div>
 
-            <div>
+
+            <div class="timeline-content">
 
                 <h3>
                     SSLC
@@ -462,7 +539,7 @@
 
             </div>
 
-        </div>
+        </article>
 
     </div>
 
@@ -476,168 +553,159 @@
 
 <section class="section" id="skills">
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
-        <span>03</span>
+        <span>
+            03
+        </span>
 
-        <h2>
-            Skills
-        </h2>
+        <div>
+
+            <small>
+                WHAT I WORK WITH
+            </small>
+
+            <h2>
+                Skills
+            </h2>
+
+        </div>
 
     </div>
 
 
-    <div class="skills-container">
+    <div class="skills-grid">
 
 
-        <div class="skill reveal">
+        <article class="skill-card reveal">
 
-            <div class="skill-top">
+            <span>
+                01
+            </span>
 
-                <h3>
-                    Programming
-                </h3>
-
-                <span>
-                    01
-                </span>
-
-            </div>
+            <h3>
+                Programming
+            </h3>
 
             <p>
-                C / C++ • Java • Python • JavaScript
+                C / C++ · Java · Python · JavaScript
             </p>
 
-            <div class="skill-line">
-                <span style="width:82%"></span>
+            <div class="skill-bar">
+                <i style="width:82%"></i>
             </div>
 
-        </div>
+        </article>
 
 
-        <div class="skill reveal">
 
-            <div class="skill-top">
+        <article class="skill-card reveal">
 
-                <h3>
-                    Web Development
-                </h3>
+            <span>
+                02
+            </span>
 
-                <span>
-                    02
-                </span>
-
-            </div>
+            <h3>
+                Web Development
+            </h3>
 
             <p>
-                HTML • CSS • JavaScript • React • PHP
+                HTML · CSS · JavaScript · React · PHP
             </p>
 
-            <div class="skill-line">
-                <span style="width:88%"></span>
+            <div class="skill-bar">
+                <i style="width:88%"></i>
             </div>
 
-        </div>
+        </article>
 
 
-        <div class="skill reveal">
 
-            <div class="skill-top">
+        <article class="skill-card reveal">
 
-                <h3>
-                    AI / ML
-                </h3>
+            <span>
+                03
+            </span>
 
-                <span>
-                    03
-                </span>
-
-            </div>
+            <h3>
+                AI / ML
+            </h3>
 
             <p>
-                Python • Scikit-learn • Pandas • OpenCV
+                Python · Scikit-learn · Pandas · OpenCV
             </p>
 
-            <div class="skill-line">
-                <span style="width:72%"></span>
+            <div class="skill-bar">
+                <i style="width:72%"></i>
             </div>
 
-        </div>
+        </article>
 
 
-        <div class="skill reveal">
 
-            <div class="skill-top">
+        <article class="skill-card reveal">
 
-                <h3>
-                    Database
-                </h3>
+            <span>
+                04
+            </span>
 
-                <span>
-                    04
-                </span>
-
-            </div>
+            <h3>
+                Database
+            </h3>
 
             <p>
-                MySQL • SQLite • SQL
+                MySQL · SQLite · SQL
             </p>
 
-            <div class="skill-line">
-                <span style="width:76%"></span>
+            <div class="skill-bar">
+                <i style="width:76%"></i>
             </div>
 
-        </div>
+        </article>
 
 
-        <div class="skill reveal">
 
-            <div class="skill-top">
+        <article class="skill-card reveal">
 
-                <h3>
-                    Development Tools
-                </h3>
+            <span>
+                05
+            </span>
 
-                <span>
-                    05
-                </span>
-
-            </div>
+            <h3>
+                Development Tools
+            </h3>
 
             <p>
-                Git • GitHub • GitHub Pages • XAMPP
+                Git · GitHub · GitHub Pages · XAMPP
             </p>
 
-            <div class="skill-line">
-                <span style="width:86%"></span>
+            <div class="skill-bar">
+                <i style="width:86%"></i>
             </div>
 
-        </div>
+        </article>
 
 
-        <div class="skill reveal">
 
-            <div class="skill-top">
+        <article class="skill-card reveal">
 
-                <h3>
-                    IoT
-                </h3>
+            <span>
+                06
+            </span>
 
-                <span>
-                    06
-                </span>
-
-            </div>
+            <h3>
+                IoT
+            </h3>
 
             <p>
-                ESP32 • LoRa • OLED • Sensors
+                ESP32 · LoRa · OLED · Sensors
             </p>
 
-            <div class="skill-line">
-                <span style="width:68%"></span>
+            <div class="skill-bar">
+                <i style="width:68%"></i>
             </div>
 
-        </div>
+        </article>
 
     </div>
 
@@ -649,15 +717,28 @@
      PROJECTS
 ===================================================== -->
 
-<section class="section light-section" id="projects">
+<section
+    class="section soft"
+    id="projects"
+>
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
-        <span>04</span>
+        <span>
+            04
+        </span>
 
-        <h2>
-            Projects
-        </h2>
+        <div>
+
+            <small>
+                THINGS I'VE BUILT
+            </small>
+
+            <h2>
+                Projects
+            </h2>
+
+        </div>
 
     </div>
 
@@ -665,321 +746,349 @@
     <p class="section-intro reveal">
 
         Games, AI projects, web applications,
-        academic projects and IoT experiments.
+        academic work and IoT experiments.
 
     </p>
 
 
-    <div class="project-list">
+    <div class="project-grid">
 
 
-        <!-- PROJECT 1 -->
+        <!-- ARROWHEAD -->
 
-        <article class="project reveal">
+        <article class="project-card featured reveal">
 
-            <div class="project-number">
-                01
-            </div>
+            <div class="project-top">
 
-            <div class="project-content">
+                <span>
+                    01
+                </span>
 
                 <small>
-                    GAME • JAVASCRIPT
+                    GAME · JAVASCRIPT
                 </small>
 
-                <h3>
-                    ARROWHEAD
-                </h3>
+            </div>
 
-                <h4>
-                    Infinite Logic
-                </h4>
 
-                <p>
+            <h3>
+                ARROWHEAD
+            </h3>
 
-                    An interactive arrow-based logic
-                    game with levels, timing, lives,
-                    rewards and progressively challenging
-                    gameplay.
+            <h4>
+                Infinite Logic
+            </h4>
 
-                </p>
 
-                <div class="tags">
+            <p>
 
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>PWA</span>
+                Interactive arrow-based logic game
+                with levels, timing, lives, rewards
+                and progressively challenging gameplay.
 
-                </div>
+            </p>
 
-                <a
-                    href="https://mahalakshmikommaranahalli9-cell.github.io/arrowhead/"
-                    target="_blank"
-                >
-                    Play Game →
-                </a>
+
+            <div class="tags">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>PWA</span>
 
             </div>
+
+
+            <a
+                href="https://mahalakshmikommaranahalli9-cell.github.io/arrowhead/"
+                target="_blank"
+                rel="noopener"
+            >
+                Play Game <b>↗</b>
+            </a>
 
         </article>
 
 
 
-        <!-- PROJECT 2 -->
+        <!-- ARROW 19.09 -->
 
-        <article class="project reveal">
+        <article class="project-card reveal">
 
-            <div class="project-number">
-                02
-            </div>
+            <div class="project-top">
 
-            <div class="project-content">
+                <span>
+                    02
+                </span>
 
                 <small>
-                    GAME • WEB
+                    GAME · WEB
                 </small>
 
-                <h3>
-                    ARROW // 19.09
-                </h3>
+            </div>
 
-                <h4>
-                    Interactive Arrow Experience
-                </h4>
 
-                <p>
+            <h3>
+                ARROW // 19.09
+            </h3>
 
-                    An interactive arrow-based puzzle
-                    experience featuring custom levels,
-                    progressive challenges and animated
-                    gameplay.
+            <h4>
+                Interactive Arrow Experience
+            </h4>
 
-                </p>
 
-                <div class="tags">
+            <p>
 
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
+                Custom arrow-based puzzle experience
+                with progressive challenges and
+                animated gameplay.
 
-                </div>
+            </p>
 
-                <a
-                    href="https://mahalakshmikommaranahalli9-cell.github.io/arrow-19-09/"
-                    target="_blank"
-                >
-                    Play Game →
-                </a>
+
+            <div class="tags">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
 
             </div>
+
+
+            <a
+                href="https://mahalakshmikommaranahalli9-cell.github.io/arrow-19-09/"
+                target="_blank"
+                rel="noopener"
+            >
+                Play Game <b>↗</b>
+            </a>
 
         </article>
 
 
 
-        <!-- PROJECT 3 -->
+        <!-- LANDSLIDE -->
 
-        <article class="project reveal">
+        <article class="project-card reveal">
 
-            <div class="project-number">
-                03
-            </div>
+            <div class="project-top">
 
-            <div class="project-content">
+                <span>
+                    03
+                </span>
 
                 <small>
-                    AI / ML • EARLY WARNING
+                    AI / ML · EARLY WARNING
                 </small>
 
-                <h3>
-                    Landslide Sentinel AI
-                </h3>
+            </div>
 
-                <h4>
-                    Risk Monitoring System
-                </h4>
 
-                <p>
+            <h3>
+                Landslide Sentinel AI
+            </h3>
 
-                    AI-based early warning and landslide
-                    risk monitoring system designed to
-                    analyse environmental information.
+            <h4>
+                Risk Monitoring System
+            </h4>
 
-                </p>
 
-                <div class="tags">
+            <p>
 
-                    <span>Python</span>
-                    <span>Flask</span>
-                    <span>Pandas</span>
-                    <span>Scikit-learn</span>
+                AI-based early warning and landslide
+                risk monitoring project for environmental
+                information analysis.
 
-                </div>
+            </p>
 
-                <a
-                    href="https://mahalakshmikommaranahalli9-cell.github.io/Landslide-Sentinel-AI/"
-                    target="_blank"
-                >
-                    Live Project →
-                </a>
+
+            <div class="tags">
+
+                <span>Python</span>
+                <span>Flask</span>
+                <span>Pandas</span>
+                <span>Scikit-learn</span>
 
             </div>
+
+
+            <a
+                href="https://mahalakshmikommaranahalli9-cell.github.io/Landslide-Sentinel-AI/"
+                target="_blank"
+                rel="noopener"
+            >
+                Live Project <b>↗</b>
+            </a>
 
         </article>
 
 
 
-        <!-- PROJECT 4 -->
+        <!-- TRUST VISION -->
 
-        <article class="project reveal">
+        <article class="project-card reveal">
 
-            <div class="project-number">
-                04
-            </div>
+            <div class="project-top">
 
-            <div class="project-content">
+                <span>
+                    04
+                </span>
 
                 <small>
-                    COMPUTER VISION • SECURITY
+                    COMPUTER VISION · SECURITY
                 </small>
 
-                <h3>
-                    TRUST-VISION
-                </h3>
+            </div>
 
-                <h4>
-                    Computer Vision Integrity
-                </h4>
 
-                <p>
+            <h3>
+                TRUST-VISION
+            </h3>
 
-                    A computer vision integrity assurance
-                    concept for trustworthy data, models
-                    and inference outputs.
+            <h4>
+                Computer Vision Integrity
+            </h4>
 
-                </p>
 
-                <div class="tags">
+            <p>
 
-                    <span>Python</span>
-                    <span>OpenCV</span>
-                    <span>FastAPI</span>
-                    <span>AI</span>
+                Integrity assurance concept for
+                trustworthy data, models and inference
+                outputs in multi-contributor pipelines.
 
-                </div>
+            </p>
 
-                <a
-                    href="https://github.com/mahalakshmikommaranahalli9-cell"
-                    target="_blank"
-                >
-                    GitHub →
-                </a>
+
+            <div class="tags">
+
+                <span>Python</span>
+                <span>OpenCV</span>
+                <span>FastAPI</span>
+                <span>AI</span>
 
             </div>
+
+
+            <a
+                href="https://github.com/mahalakshmikommaranahalli9-cell"
+                target="_blank"
+                rel="noopener"
+            >
+                GitHub <b>↗</b>
+            </a>
 
         </article>
 
 
 
-        <!-- PROJECT 5 -->
+        <!-- SMARTFORM -->
 
-        <article class="project reveal">
+        <article class="project-card reveal">
 
-            <div class="project-number">
-                05
-            </div>
+            <div class="project-top">
 
-            <div class="project-content">
+                <span>
+                    05
+                </span>
 
                 <small>
                     WEB APPLICATION
                 </small>
 
-                <h3>
-                    SmartForm
-                </h3>
+            </div>
 
-                <h4>
-                    Smart Form Builder
-                </h4>
 
-                <p>
+            <h3>
+                SmartForm
+            </h3>
 
-                    A web-based form builder and publishing
-                    platform for creating and managing
-                    interactive forms.
+            <h4>
+                Smart Form Builder
+            </h4>
 
-                </p>
 
-                <div class="tags">
+            <p>
 
-                    <span>React</span>
-                    <span>Vite</span>
-                    <span>JavaScript</span>
+                Web-based form builder and publishing
+                platform for creating and managing
+                interactive forms.
 
-                </div>
+            </p>
 
-                <a
-                    href="https://github.com/mahalakshmikommaranahalli9-cell"
-                    target="_blank"
-                >
-                    GitHub →
-                </a>
+
+            <div class="tags">
+
+                <span>React</span>
+                <span>Vite</span>
+                <span>JavaScript</span>
 
             </div>
+
+
+            <a
+                href="https://github.com/mahalakshmikommaranahalli9-cell"
+                target="_blank"
+                rel="noopener"
+            >
+                GitHub <b>↗</b>
+            </a>
 
         </article>
 
 
 
-        <!-- PROJECT 6 -->
+        <!-- IOT -->
 
-        <article class="project reveal">
+        <article class="project-card reveal">
 
-            <div class="project-number">
-                06
-            </div>
+            <div class="project-top">
 
-            <div class="project-content">
+                <span>
+                    06
+                </span>
 
                 <small>
                     HARDWARE + SOFTWARE
                 </small>
 
-                <h3>
-                    Smart Irrigation / IoT
-                </h3>
+            </div>
 
-                <h4>
-                    ESP32 • LoRa
-                </h4>
 
-                <p>
+            <h3>
+                Smart Irrigation / IoT
+            </h3>
 
-                    An ESP32 and LoRa based IoT project
-                    involving environmental monitoring,
-                    sensors and OLED display.
+            <h4>
+                ESP32 · LoRa
+            </h4>
 
-                </p>
 
-                <div class="tags">
+            <p>
 
-                    <span>ESP32</span>
-                    <span>LoRa</span>
-                    <span>OLED</span>
-                    <span>Sensors</span>
+                IoT experiment involving ESP32,
+                LoRa, environmental sensors and
+                an OLED display.
 
-                </div>
+            </p>
 
-                <a
-                    href="https://github.com/mahalakshmikommaranahalli9-cell"
-                    target="_blank"
-                >
-                    GitHub →
-                </a>
+
+            <div class="tags">
+
+                <span>ESP32</span>
+                <span>LoRa</span>
+                <span>OLED</span>
+                <span>Sensors</span>
 
             </div>
+
+
+            <a
+                href="https://github.com/mahalakshmikommaranahalli9-cell"
+                target="_blank"
+                rel="noopener"
+            >
+                GitHub <b>↗</b>
+            </a>
 
         </article>
 
@@ -995,36 +1104,43 @@
 
 <section class="section" id="notes">
 
-    <div class="section-heading reveal">
+    <div class="section-head reveal">
 
-        <span>05</span>
+        <span>
+            05
+        </span>
 
-        <h2>
-            VTU Notes
-        </h2>
+        <div>
+
+            <small>
+                LEARNING RESOURCE
+            </small>
+
+            <h2>
+                VTU Notes
+            </h2>
+
+        </div>
 
     </div>
 
 
     <p class="section-intro reveal">
-
         Learn. Build. Share.
-
     </p>
 
 
-    <div class="notes-list">
+    <div class="notes-grid">
 
 
         <a
+            class="note-card reveal"
             href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
             target="_blank"
-            class="note reveal"
+            rel="noopener"
         >
 
-            <span>
-                01
-            </span>
+            <span>01</span>
 
             <div>
 
@@ -1038,22 +1154,20 @@
 
             </div>
 
-            <b>
-                →
-            </b>
+            <b>↗</b>
 
         </a>
 
 
+
         <a
+            class="note-card reveal"
             href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
             target="_blank"
-            class="note reveal"
+            rel="noopener"
         >
 
-            <span>
-                02
-            </span>
+            <span>02</span>
 
             <div>
 
@@ -1067,22 +1181,20 @@
 
             </div>
 
-            <b>
-                →
-            </b>
+            <b>↗</b>
 
         </a>
 
 
+
         <a
+            class="note-card reveal"
             href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
             target="_blank"
-            class="note reveal"
+            rel="noopener"
         >
 
-            <span>
-                03
-            </span>
+            <span>03</span>
 
             <div>
 
@@ -1096,21 +1208,15 @@
 
             </div>
 
-            <b>
-                →
-            </b>
+            <b>↗</b>
 
         </a>
 
 
-        <a
-            href="#"
-            class="note reveal"
-        >
 
-            <span>
-                04
-            </span>
+        <div class="note-card soon reveal">
+
+            <span>04</span>
 
             <div>
 
@@ -1128,17 +1234,13 @@
                 SOON
             </b>
 
-        </a>
+        </div>
 
 
-        <a
-            href="#"
-            class="note reveal"
-        >
 
-            <span>
-                05
-            </span>
+        <div class="note-card soon reveal">
+
+            <span>05</span>
 
             <div>
 
@@ -1156,17 +1258,13 @@
                 SOON
             </b>
 
-        </a>
+        </div>
 
 
-        <a
-            href="#"
-            class="note reveal"
-        >
 
-            <span>
-                06
-            </span>
+        <div class="note-card soon reveal">
+
+            <span>06</span>
 
             <div>
 
@@ -1184,7 +1282,7 @@
                 SOON
             </b>
 
-        </a>
+        </div>
 
     </div>
 
@@ -1206,20 +1304,25 @@
                 ● CURRENTLY BUILDING
             </small>
 
+
             <h2>
 
                 Always learning.
-                <span>
+
+                <br>
+
+                <em>
                     Always building.
-                </span>
+                </em>
 
             </h2>
 
+
             <p>
 
-                Interactive games • AI & Computer Vision
-                • Web Applications • VTU Learning Resources
-                • IoT Experiments
+                Interactive games · AI & Computer Vision
+                · Web Applications · VTU Learning Resources
+                · IoT Experiments
 
             </p>
 
@@ -1240,13 +1343,17 @@
      CONTACT
 ===================================================== -->
 
-<section class="section contact" id="contact">
+<section
+    class="contact-section"
+    id="contact"
+>
 
     <div class="contact-inner reveal">
 
         <span>
             06 — CONTACT
         </span>
+
 
         <h2>
 
@@ -1257,6 +1364,7 @@
             </em>
 
         </h2>
+
 
         <p>
 
@@ -1271,6 +1379,7 @@
             <a
                 href="https://github.com/mahalakshmikommaranahalli9-cell"
                 target="_blank"
+                rel="noopener"
             >
                 GitHub ↗
             </a>
@@ -1279,13 +1388,14 @@
             <a
                 href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
                 target="_blank"
+                rel="noopener"
             >
                 LinkedIn ↗
             </a>
 
 
             <a
-                href="mailto:YOUR_EMAIL@gmail.com"
+                href="mailto:mahalakshmikommaranahalli9@gmail.com"
             >
                 Email ↗
             </a>
@@ -1295,6 +1405,8 @@
     </div>
 
 </section>
+
+</main>
 
 
 
@@ -1313,7 +1425,8 @@
     </p>
 
     <small>
-        © <span id="year"></span> All rights reserved.
+        © <span id="year"></span>
+        All rights reserved.
     </small>
 
 </footer>
@@ -1322,7 +1435,11 @@
 
 <!-- BACK TO TOP -->
 
-<button id="topButton">
+<button
+    class="top-button"
+    id="topButton"
+    aria-label="Back to top"
+>
     ↑
 </button>
 
@@ -1330,5 +1447,4 @@
 <script src="script.js"></script>
 
 </body>
-
 </html>
