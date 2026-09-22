@@ -1,20 +1,18 @@
-/* =========================================================
-   MAHALAKSHMI PORTFOLIO
-========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
        TYPING ANIMATION
     ===================================================== */
 
-    const typingText = document.getElementById("typingText");
+    const typingText =
+        document.getElementById("typingText");
 
     const words = [
-        "Computer Science Student",
-        "Web Developer",
+        "Software Developer",
+        "CSE Student",
         "AI / ML Enthusiast",
-        "Problem Solver",
+        "Web Developer",
         "Creative Builder"
     ];
 
@@ -22,24 +20,37 @@ document.addEventListener("DOMContentLoaded", () => {
     let letterIndex = 0;
     let deleting = false;
 
-    function typeAnimation() {
+
+    function typeWriter() {
 
         if (!typingText) return;
 
-        const currentWord = words[wordIndex];
+        const word =
+            words[wordIndex];
+
 
         if (!deleting) {
 
             typingText.textContent =
-                currentWord.substring(0, letterIndex + 1);
+                word.substring(
+                    0,
+                    letterIndex + 1
+                );
 
             letterIndex++;
 
-            if (letterIndex === currentWord.length) {
+
+            if (
+                letterIndex ===
+                word.length
+            ) {
 
                 deleting = true;
 
-                setTimeout(typeAnimation, 1600);
+                setTimeout(
+                    typeWriter,
+                    1500
+                );
 
                 return;
             }
@@ -47,9 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
 
             typingText.textContent =
-                currentWord.substring(0, letterIndex - 1);
+                word.substring(
+                    0,
+                    letterIndex - 1
+                );
 
             letterIndex--;
+
 
             if (letterIndex === 0) {
 
@@ -57,7 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 wordIndex++;
 
-                if (wordIndex >= words.length) {
+                if (
+                    wordIndex >=
+                    words.length
+                ) {
                     wordIndex = 0;
                 }
 
@@ -65,12 +83,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        const speed = deleting ? 45 : 85;
 
-        setTimeout(typeAnimation, speed);
+        setTimeout(
+            typeWriter,
+            deleting ? 45 : 85
+        );
+
     }
 
-    typeAnimation();
+
+    typeWriter();
+
 
 
     /* =====================================================
@@ -78,61 +101,100 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const menuButton =
-        document.getElementById("menuButton");
+        document.getElementById(
+            "menuButton"
+        );
 
     const navMenu =
-        document.getElementById("navMenu");
+        document.getElementById(
+            "navMenu"
+        );
 
-    if (menuButton && navMenu) {
 
-        menuButton.addEventListener("click", () => {
+    menuButton.addEventListener(
+        "click",
+        function () {
 
-            navMenu.classList.toggle("open");
+            navMenu.classList.toggle(
+                "open"
+            );
 
-            if (navMenu.classList.contains("open")) {
-                menuButton.textContent = "✕";
+
+            if (
+                navMenu.classList.contains(
+                    "open"
+                )
+            ) {
+
+                menuButton.textContent =
+                    "✕";
+
             } else {
-                menuButton.textContent = "☰";
+
+                menuButton.textContent =
+                    "☰";
+
             }
 
+        }
+    );
+
+
+    navMenu
+        .querySelectorAll("a")
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    navMenu.classList.remove(
+                        "open"
+                    );
+
+                    menuButton.textContent =
+                        "☰";
+
+                }
+            );
+
         });
 
-
-        navMenu.querySelectorAll("a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navMenu.classList.remove("open");
-
-                menuButton.textContent = "☰";
-
-            });
-
-        });
-
-    }
 
 
     /* =====================================================
-       NAVBAR SCROLL EFFECT
+       NAVBAR SCROLL
     ===================================================== */
 
     const navbar =
-        document.getElementById("navbar");
+        document.getElementById(
+            "navbar"
+        );
 
-    window.addEventListener("scroll", () => {
 
-        if (window.scrollY > 50) {
+    window.addEventListener(
+        "scroll",
+        function () {
 
-            navbar.classList.add("scrolled");
+            if (
+                window.scrollY > 50
+            ) {
 
-        } else {
+                navbar.classList.add(
+                    "scrolled"
+                );
 
-            navbar.classList.remove("scrolled");
+            } else {
+
+                navbar.classList.remove(
+                    "scrolled"
+                );
+
+            }
 
         }
+    );
 
-    });
 
 
     /* =====================================================
@@ -140,40 +202,52 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const revealElements =
-        document.querySelectorAll(".reveal");
+        document.querySelectorAll(
+            ".reveal"
+        );
 
-    const revealObserver =
+
+    const observer =
         new IntersectionObserver(
+            function (entries) {
 
-            entries => {
+                entries.forEach(
+                    function (entry) {
 
-                entries.forEach(entry => {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                    if (entry.isIntersecting) {
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
-                        entry.target.classList.add("visible");
+                            observer.unobserve(
+                                entry.target
+                            );
 
-                        revealObserver.unobserve(
-                            entry.target
-                        );
+                        }
 
                     }
-
-                });
+                );
 
             },
-
             {
                 threshold: 0.12
             }
-
         );
 
-    revealElements.forEach(element => {
 
-        revealObserver.observe(element);
+    revealElements.forEach(
+        function (element) {
 
-    });
+            observer.observe(
+                element
+            );
+
+        }
+    );
+
 
 
     /* =====================================================
@@ -181,48 +255,64 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const topButton =
-        document.getElementById("topButton");
+        document.getElementById(
+            "topButton"
+        );
 
-    window.addEventListener("scroll", () => {
 
-        if (window.scrollY > 500) {
+    window.addEventListener(
+        "scroll",
+        function () {
 
-            topButton.classList.add("show");
+            if (
+                window.scrollY > 500
+            ) {
 
-        } else {
+                topButton.classList.add(
+                    "show"
+                );
 
-            topButton.classList.remove("show");
+            } else {
+
+                topButton.classList.remove(
+                    "show"
+                );
+
+            }
 
         }
+    );
 
-    });
 
-
-    if (topButton) {
-
-        topButton.addEventListener("click", () => {
+    topButton.addEventListener(
+        "click",
+        function () {
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
 
-        });
+        }
+    );
 
-    }
 
 
     /* =====================================================
-       NETWORK / PARTICLE BACKGROUND
+       ANIMATED NETWORK BACKGROUND
     ===================================================== */
 
     const canvas =
-        document.getElementById("networkCanvas");
+        document.getElementById(
+            "networkCanvas"
+        );
 
     const ctx =
         canvas.getContext("2d");
 
+
     let particles = [];
+
 
     function resizeCanvas() {
 
@@ -231,6 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         canvas.height =
             window.innerHeight;
+
 
         createParticles();
 
@@ -241,32 +332,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
         particles = [];
 
+
         const amount =
             Math.min(
-                65,
-                Math.floor(window.innerWidth / 18)
+                75,
+                Math.floor(
+                    window.innerWidth / 17
+                )
             );
 
-        for (let i = 0; i < amount; i++) {
+
+        for (
+            let i = 0;
+            i < amount;
+            i++
+        ) {
 
             particles.push({
 
-                x: Math.random() *
+                x:
+                    Math.random() *
                     canvas.width,
 
-                y: Math.random() *
+                y:
+                    Math.random() *
                     canvas.height,
 
                 vx:
-                    (Math.random() - 0.5) *
-                    0.35,
+                    (Math.random() - 0.5)
+                    * 0.35,
 
                 vy:
-                    (Math.random() - 0.5) *
-                    0.35,
+                    (Math.random() - 0.5)
+                    * 0.35,
 
                 radius:
-                    Math.random() * 2 + 1
+                    Math.random() * 1.8
+                    + 1
 
             });
 
@@ -275,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function drawNetwork() {
+    function animateNetwork() {
 
         ctx.clearRect(
             0,
@@ -285,49 +387,56 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        /* PARTICLES */
+        particles.forEach(
+            function (particle) {
 
-        particles.forEach(particle => {
+                particle.x +=
+                    particle.vx;
 
-            particle.x += particle.vx;
-            particle.y += particle.vy;
+                particle.y +=
+                    particle.vy;
 
 
-            if (
-                particle.x < 0 ||
-                particle.x > canvas.width
-            ) {
-                particle.vx *= -1;
+                if (
+                    particle.x < 0 ||
+                    particle.x >
+                    canvas.width
+                ) {
+
+                    particle.vx *= -1;
+
+                }
+
+
+                if (
+                    particle.y < 0 ||
+                    particle.y >
+                    canvas.height
+                ) {
+
+                    particle.vy *= -1;
+
+                }
+
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    particle.x,
+                    particle.y,
+                    particle.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle =
+                    "rgba(70,70,70,0.45)";
+
+                ctx.fill();
+
             }
+        );
 
-
-            if (
-                particle.y < 0 ||
-                particle.y > canvas.height
-            ) {
-                particle.vy *= -1;
-            }
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-                particle.x,
-                particle.y,
-                particle.radius,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fillStyle =
-                "rgba(60,60,60,0.35)";
-
-            ctx.fill();
-
-        });
-
-
-        /* CONNECTIONS */
 
         for (
             let i = 0;
@@ -356,11 +465,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
 
-                if (distance < 150) {
+                if (
+                    distance < 150
+                ) {
 
                     const opacity =
-                        (1 - distance / 150)
-                        * 0.22;
+                        (
+                            1 -
+                            distance / 150
+                        ) * 0.22;
+
 
                     ctx.beginPath();
 
@@ -375,7 +489,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
                     ctx.strokeStyle =
-                        `rgba(60,60,60,${opacity})`;
+                        `rgba(70,70,70,${opacity})`;
 
                     ctx.lineWidth = 1;
 
@@ -389,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         requestAnimationFrame(
-            drawNetwork
+            animateNetwork
         );
 
     }
@@ -400,84 +514,11 @@ document.addEventListener("DOMContentLoaded", () => {
         resizeCanvas
     );
 
+
     resizeCanvas();
 
-    drawNetwork();
+    animateNetwork();
 
-
-    /* =====================================================
-       PROJECT CARD TILT
-    ===================================================== */
-
-    const cards =
-        document.querySelectorAll(
-            ".project-card"
-        );
-
-
-    cards.forEach(card => {
-
-        card.addEventListener(
-            "mousemove",
-            event => {
-
-                if (window.innerWidth < 900)
-                    return;
-
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const centerX =
-                    rect.width / 2;
-
-
-                const centerY =
-                    rect.height / 2;
-
-
-                const rotateX =
-                    ((y - centerY) /
-                    centerY) * -3;
-
-
-                const rotateY =
-                    ((x - centerX) /
-                    centerX) * 3;
-
-
-                card.style.transform =
-                    `perspective(800px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateY(-10px)`;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                card.style.transform =
-                    "";
-
-            }
-        );
-
-    });
 
 
     /* =====================================================
@@ -485,7 +526,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const year =
-        document.getElementById("year");
+        document.getElementById(
+            "year"
+        );
+
 
     if (year) {
 
@@ -496,7 +540,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     console.log(
-        "Mahalakshmi Portfolio loaded successfully 🚀"
+        "Mahalakshmi Portfolio loaded 🚀"
     );
 
 });
