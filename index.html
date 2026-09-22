@@ -4,235 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mahalakshmi Kommaranahalli | Developer Portfolio</title>
+    <title>Mahalakshmi Kommaranahalli | Portfolio</title>
 
-    <meta name="description"
-          content="Mahalakshmi Kommaranahalli — CSE student, developer, AI/ML, web development, games and IoT projects.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <meta
+        name="description"
+        content="Mahalakshmi Kommaranahalli - Computer Science Engineering student, developer and technology enthusiast."
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= LOADER ================= -->
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-<div id="loader">
-    <div class="loader-logo">MK</div>
-    <p>Loading portfolio...</p>
-</div>
+<canvas id="networkCanvas"></canvas>
+
+<div class="background-shape shape-one"></div>
+<div class="background-shape shape-two"></div>
+<div class="background-shape shape-three"></div>
 
 
-<!-- ================= NAVBAR ================= -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-<header class="navbar">
+<header class="navbar" id="navbar">
 
     <a href="#home" class="logo">
-        <span>MK</span>
+        <span>M</span>
+        <strong>Mahalakshmi</strong>
     </a>
 
-    <nav id="navLinks">
+    <nav id="navMenu">
 
         <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#notes">VTU Notes</a>
-        <a href="#skills">Skills</a>
-        <a href="#achievements">Achievements</a>
         <a href="#contact">Contact</a>
 
     </nav>
 
-    <button id="themeButton" aria-label="Change theme">
-        <i class="fa-solid fa-moon"></i>
-    </button>
-
-    <button id="menuButton" class="menu-button">
-        <i class="fa-solid fa-bars"></i>
+    <button class="menu-button" id="menuButton" aria-label="Open menu">
+        ☰
     </button>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-<section id="home" class="hero">
+<main>
 
-    <div class="hero-grid"></div>
+<section class="hero section" id="home">
 
-    <div class="hero-container">
+    <div class="hero-content reveal">
 
-        <div class="hero-text">
+        <p class="small-intro">HI,</p>
 
-            <div class="hello">
-                <span></span>
-                Hello, I'm
-            </div>
-
-            <h1>
+        <h1>
+            I'M
+            <span class="hero-name">
                 Mahalakshmi
-                <strong>Kommaranahalli</strong>
-            </h1>
+            </span>
+        </h1>
 
-            <div class="signature">
-                Building ideas into
-                <span>digital experiences.</span>
-            </div>
+        <div class="typing-line">
+            <span id="typingText"></span>
+            <span class="cursor">|</span>
+        </div>
 
-            <h2>
-                CSE Student • Developer • Problem Solver
-            </h2>
+        <p class="hero-description">
+            Computer Science Engineering student passionate about
+            building creative software, solving problems and
+            exploring AI, web development and technology.
+        </p>
 
-            <p class="hero-description">
-                I build websites, interactive games, AI/ML projects,
-                IoT systems and useful digital solutions while learning
-                and experimenting with new technologies.
-            </p>
+        <div class="hero-buttons">
 
-            <div class="hero-buttons">
+            <a
+                href="https://github.com/mahalakshmikommaranahalli9-cell"
+                target="_blank"
+                class="btn primary-btn"
+            >
+                GitHub ↗
+            </a>
 
-                <a href="#projects" class="button primary">
-                    View My Work
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+            <a
+                href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
+                target="_blank"
+                class="btn secondary-btn"
+            >
+                LinkedIn ↗
+            </a>
 
-                <a href="#contact" class="button secondary">
-                    Contact Me
-                </a>
-
-            </div>
-
-            <div class="socials">
-
-                <a href="https://github.com/mahalakshmikommaranahalli9-cell"
-                   target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
-                   target="_blank">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-
-                <a href="https://www.instagram.com/its_me_mahaaaa__/"
-                   target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-
-            </div>
+            <a href="#contact" class="btn secondary-btn">
+                Contact
+            </a>
 
         </div>
 
-
-        <!-- PROFILE VISUAL -->
-
-        <div class="hero-visual">
-
-            <div class="glow"></div>
-
-            <div class="orbit orbit-one"></div>
-            <div class="orbit orbit-two"></div>
-
-            <div class="photo-card">
-
-                <div class="photo-ring">
-
-                    <div class="photo">
-
-                        <img src="profile.jpg"
-                             alt="Mahalakshmi Kommaranahalli">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="floating-card card-one">
-                <i class="fa-solid fa-code"></i>
-                <span>Developer</span>
-            </div>
-
-            <div class="floating-card card-two">
-                <i class="fa-solid fa-robot"></i>
-                <span>AI / ML</span>
-            </div>
-
-            <div class="floating-card card-three">
-                <i class="fa-solid fa-microchip"></i>
-                <span>IoT</span>
-            </div>
-
+        <div class="scroll-hint">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">↓</div>
         </div>
 
     </div>
 
-    <div class="scroll-text">
-        SCROLL TO EXPLORE
-        <span></span>
+
+    <!-- =================================================
+         HERO IMAGE
+    ================================================= -->
+
+    <div class="hero-image-area reveal">
+
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="photo-background"></div>
+
+        <div class="photo-wrapper">
+
+            <img
+                src="profile.jpg"
+                alt="Mahalakshmi Kommaranahalli"
+                class="profile-photo"
+            >
+
+        </div>
+
+
+        <!-- Floating cards -->
+
+        <div class="floating-card card-one">
+            <span>💻</span>
+            <strong>Developer</strong>
+        </div>
+
+        <div class="floating-card card-two">
+            <span>🤖</span>
+            <strong>AI / ML</strong>
+        </div>
+
+        <div class="floating-card card-three">
+            <span>🚀</span>
+            <strong>Builder</strong>
+        </div>
+
     </div>
 
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-<section id="about" class="section">
+<section class="section content-section" id="about">
 
-    <div class="section-heading">
-        <span>01 — ABOUT</span>
-        <h2>A student who loves building things.</h2>
+    <div class="section-title reveal">
+        <span>01</span>
+        <h2>About Me</h2>
     </div>
 
     <div class="about-grid">
 
-        <div class="about-main">
+        <div class="about-text reveal">
+
+            <h3>
+                Turning ideas into
+                <span>digital experiences.</span>
+            </h3>
 
             <p>
-                I'm <strong>Mahalakshmi Kommaranahalli</strong>,
-                a Computer Science & Engineering student at
-                Jain Institute of Technology, Davanagere.
+                I'm Mahalakshmi Kommaranahalli, a Computer Science
+                Engineering student who enjoys creating websites,
+                software projects and technology experiments.
             </p>
 
             <p>
-                I enjoy turning ideas into websites, applications,
-                games and technology projects.
+                I love learning by building. From web applications
+                and AI projects to IoT experiments and games,
+                I enjoy taking an idea and turning it into something
+                people can actually use.
             </p>
 
             <p>
-                My interests include web development, programming,
+                Currently, I'm exploring software development,
                 artificial intelligence, machine learning,
-                IoT and interactive digital experiences.
-            </p>
-
-            <p>
-                I learn by building projects — from college
-                mini-projects to games, AI systems, web applications
-                and IoT prototypes.
+                cybersecurity and creative technology.
             </p>
 
         </div>
 
-        <div class="interest-box">
 
-            <h3>What I Like Building</h3>
+        <div class="about-stats reveal">
 
-            <div class="interest-list">
+            <div class="stat-card">
+                <strong>8.6</strong>
+                <span>CGPA</span>
+            </div>
 
-                <span>Web Applications</span>
-                <span>Interactive Games</span>
-                <span>AI / ML Projects</span>
-                <span>IoT & ESP32</span>
-                <span>Learning Resources</span>
+            <div class="stat-card">
+                <strong>10+</strong>
+                <span>Projects</span>
+            </div>
 
+            <div class="stat-card">
+                <strong>2</strong>
+                <span>Games</span>
+            </div>
+
+            <div class="stat-card">
+                <strong>∞</strong>
+                <span>Ideas</span>
             </div>
 
         </div>
@@ -242,72 +234,88 @@
 </section>
 
 
-<!-- ================= EDUCATION ================= -->
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
 
-<section class="section education">
+<section class="section content-section" id="education">
 
-    <div class="section-heading">
-        <span>02 — EDUCATION</span>
-        <h2>My academic journey.</h2>
+    <div class="section-title reveal">
+        <span>02</span>
+        <h2>Education</h2>
     </div>
 
     <div class="timeline">
 
-        <div class="timeline-item">
+        <div class="timeline-item reveal">
 
-            <div class="timeline-year">
-                2024 — Present
-            </div>
+            <div class="timeline-dot"></div>
 
             <div class="timeline-content">
+
+                <span class="timeline-date">
+                    2024 — Present
+                </span>
 
                 <h3>Bachelor of Engineering</h3>
 
-                <h4>Computer Science & Engineering</h4>
-
-                <p>
+                <h4>
                     Jain Institute of Technology, Davanagere
+                </h4>
+
+                <p>
+                    Computer Science & Engineering
                 </p>
 
-                <small>
-                    2nd Year CGPA: 8.6
-                </small>
+                <strong class="education-score">
+                    CGPA: 8.6
+                </strong>
 
             </div>
 
         </div>
 
 
-        <div class="timeline-item">
+        <div class="timeline-item reveal">
 
-            <div class="timeline-year">
-                2022 — 2024
-            </div>
+            <div class="timeline-dot"></div>
 
             <div class="timeline-content">
 
-                <h3>PUC</h3>
+                <span class="timeline-date">
+                    2022 — 2024
+                </span>
 
-                <h4>Science</h4>
+                <h3>PUC / 12th</h3>
 
-                <p>Sir M V PU College</p>
+                <h4>Sir M V PU College</h4>
+
+                <p>
+                    Pre-University Education
+                </p>
 
             </div>
 
         </div>
 
 
-        <div class="timeline-item">
+        <div class="timeline-item reveal">
 
-            <div class="timeline-year">
-                2020 — 2022
-            </div>
+            <div class="timeline-dot"></div>
 
             <div class="timeline-content">
 
-                <h3>SSLC</h3>
+                <span class="timeline-date">
+                    2020 — 2022
+                </span>
 
-                <p>Sri Gurudeva High School</p>
+                <h3>SSLC / 10th</h3>
+
+                <h4>Sri Gurudeva High School</h4>
+
+                <p>
+                    Secondary School Education
+                </p>
 
             </div>
 
@@ -318,556 +326,58 @@
 </section>
 
 
-<!-- ================= PROJECTS ================= -->
+<!-- =====================================================
+     SKILLS
+===================================================== -->
 
-<section id="projects" class="section">
+<section class="section content-section" id="skills">
 
-    <div class="section-heading">
-        <span>03 — PROJECTS</span>
-        <h2>Things I've built.</h2>
-
-        <p>
-            Games, AI projects, web applications,
-            academic projects and IoT experiments.
-        </p>
+    <div class="section-title reveal">
+        <span>03</span>
+        <h2>Skills</h2>
     </div>
 
-
-    <!-- GAMES -->
-
-    <div class="project-category">
-
-        <div class="category-title">
-            <span>🎮</span>
-            <div>
-                <small>FEATURED CATEGORY</small>
-                <h3>Games</h3>
-            </div>
-        </div>
-
-
-        <div class="project-grid">
-
-            <article class="project-card featured">
-
-                <div class="project-number">01</div>
-
-                <span class="project-type">
-                    GAME • JAVASCRIPT
-                </span>
-
-                <h3>ARROWHEAD</h3>
-
-                <h4>Infinite Logic</h4>
-
-                <p>
-                    An interactive logic game built around
-                    arrow-based puzzles, levels, timing,
-                    lives, rewards and progressively
-                    challenging gameplay.
-                </p>
-
-                <div class="tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>PWA</span>
-                </div>
-
-                <a class="project-link"
-                   href="https://mahalakshmikommaranahalli9-cell.github.io/arrowhead/"
-                   target="_blank">
-                    Play Game
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </article>
-
-
-            <article class="project-card">
-
-                <div class="project-number">02</div>
-
-                <span class="project-type">
-                    GAME • WEB
-                </span>
-
-                <h3>ARROW // 19.09</h3>
-
-                <p>
-                    An interactive arrow-based puzzle
-                    experience featuring custom levels,
-                    progressive challenges and animated
-                    gameplay.
-                </p>
-
-                <div class="tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-
-                <a class="project-link"
-                   href="https://mahalakshmikommaranahalli9-cell.github.io/arrow-19-09/"
-                   target="_blank">
-                    Play Game
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <!-- AI -->
-
-    <div class="project-category">
-
-        <div class="category-title">
-            <span>🤖</span>
-            <div>
-                <small>ARTIFICIAL INTELLIGENCE</small>
-                <h3>AI / ML Projects</h3>
-            </div>
-        </div>
-
-
-        <div class="project-grid">
-
-            <article class="project-card">
-
-                <div class="project-number">03</div>
-
-                <span class="project-type">
-                    AI / ML • EARLY WARNING
-                </span>
-
-                <h3>Landslide Sentinel AI</h3>
-
-                <p>
-                    AI-based early warning and landslide
-                    risk monitoring system designed to
-                    analyse environmental information.
-                </p>
-
-                <div class="tags">
-                    <span>Python</span>
-                    <span>Flask</span>
-                    <span>Pandas</span>
-                    <span>Scikit-learn</span>
-                </div>
-
-                <a class="project-link"
-                   href="https://mahalakshmikommaranahalli9-cell.github.io/Landslide-Sentinel-AI/"
-                   target="_blank">
-                    Live Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </article>
-
-
-            <article class="project-card">
-
-                <div class="project-number">04</div>
-
-                <span class="project-type">
-                    COMPUTER VISION • SECURITY
-                </span>
-
-                <h3>TRUST-VISION</h3>
-
-                <p>
-                    A computer vision integrity assurance
-                    concept for trustworthy data, models
-                    and inference outputs.
-                </p>
-
-                <div class="tags">
-                    <span>Python</span>
-                    <span>OpenCV</span>
-                    <span>FastAPI</span>
-                    <span>AI</span>
-                </div>
-
-            </article>
-
-
-            <article class="project-card">
-
-                <div class="project-number">05</div>
-
-                <span class="project-type">
-                    MACHINE LEARNING
-                </span>
-
-                <h3>Password Strength Analyzer</h3>
-
-                <p>
-                    A machine-learning project for analysing
-                    password strength using classification
-                    techniques.
-                </p>
-
-                <div class="tags">
-                    <span>Python</span>
-                    <span>ML</span>
-                    <span>Naive Bayes</span>
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <!-- WEB -->
-
-    <div class="project-category">
-
-        <div class="category-title">
-            <span>🌐</span>
-            <div>
-                <small>WEB DEVELOPMENT</small>
-                <h3>Web Applications</h3>
-            </div>
-        </div>
-
-
-        <div class="project-grid">
-
-            <article class="project-card">
-
-                <div class="project-number">06</div>
-
-                <span class="project-type">
-                    WEB APPLICATION
-                </span>
-
-                <h3>SmartForm</h3>
-
-                <p>
-                    A web-based form builder and publishing
-                    platform for creating and managing
-                    interactive forms.
-                </p>
-
-                <div class="tags">
-                    <span>React</span>
-                    <span>Vite</span>
-                    <span>JavaScript</span>
-                </div>
-
-            </article>
-
-
-            <article class="project-card">
-
-                <div class="project-number">07</div>
-
-                <span class="project-type">
-                    FULL STACK
-                </span>
-
-                <h3>Campus Volunteer Management</h3>
-
-                <p>
-                    A volunteer-management application
-                    connecting frontend and backend services
-                    for campus activities.
-                </p>
-
-                <div class="tags">
-                    <span>JavaScript</span>
-                    <span>Node.js</span>
-                    <span>Backend</span>
-                </div>
-
-            </article>
-
-
-            <article class="project-card">
-
-                <div class="project-number">08</div>
-
-                <span class="project-type">
-                    WEB APPLICATION
-                </span>
-
-                <h3>Student Dashboard</h3>
-
-                <p>
-                    A student-focused dashboard featuring
-                    a focus timer, theme controls and a
-                    productivity interface.
-                </p>
-
-                <div class="tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-
-                <a class="project-link"
-                   href="https://mahalakshmikommaranahalli9-cell.github.io/student-dashboard/"
-                   target="_blank">
-                    Live Demo
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-
-            </article>
-
-
-            <article class="project-card">
-
-                <div class="project-number">09</div>
-
-                <span class="project-type">
-                    WEB / DATABASE
-                </span>
-
-                <h3>CampusHub</h3>
-
-                <p>
-                    A college management system developed
-                    to manage campus-related information
-                    using a web interface and database.
-                </p>
-
-                <div class="tags">
-                    <span>PHP</span>
-                    <span>MySQL</span>
-                    <span>JavaScript</span>
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <!-- IOT -->
-
-    <div class="project-category">
-
-        <div class="category-title">
-            <span>🔌</span>
-            <div>
-                <small>HARDWARE + SOFTWARE</small>
-                <h3>IoT Projects</h3>
-            </div>
-        </div>
-
-
-        <div class="project-grid">
-
-            <article class="project-card">
-
-                <div class="project-number">10</div>
-
-                <span class="project-type">
-                    ESP32 • LORA • IOT
-                </span>
-
-                <h3>Smart Irrigation / IoT</h3>
-
-                <p>
-                    An ESP32 and LoRa based IoT project
-                    involving environmental monitoring
-                    and sensor-based data.
-                </p>
-
-                <div class="tags">
-                    <span>ESP32</span>
-                    <span>LoRa</span>
-                    <span>OLED</span>
-                    <span>Sensors</span>
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= VTU NOTES ================= -->
-
-<section id="notes" class="section notes-section">
-
-    <div class="section-heading">
-
-        <span>04 — VTU NOTES</span>
-
-        <h2>Learn. Build. Share.</h2>
-
-        <p>
-            My semester notes and study resources
-            for Computer Science & Engineering.
-        </p>
-
-    </div>
-
-
-    <div class="notes-grid">
-
-        <a href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS501/"
-           class="note-card"
-           target="_blank">
-
-            <span>01</span>
-            <h3>BCS501</h3>
-            <p>Software Engineering and Project Management</p>
-            <strong>Open Notes →</strong>
-
-        </a>
-
-
-        <a href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS502/"
-           class="note-card"
-           target="_blank">
-
-            <span>02</span>
-            <h3>BCS502</h3>
-            <p>Computer Networks</p>
-            <strong>Open Notes →</strong>
-
-        </a>
-
-
-        <a href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/"
-           class="note-card"
-           target="_blank">
-
-            <span>03</span>
-            <h3>BCS503</h3>
-            <p>Theory of Computation</p>
-            <strong>Open Notes →</strong>
-
-        </a>
-
-
-        <a href="#contact"
-           class="note-card">
-
-            <span>04</span>
-            <h3>BCS515B</h3>
-            <p>Artificial Intelligence</p>
-            <strong>Coming Soon →</strong>
-
-        </a>
-
-
-        <a href="#contact"
-           class="note-card">
-
-            <span>05</span>
-            <h3>BCSL504</h3>
-            <p>Web Technology Lab</p>
-            <strong>Coming Soon →</strong>
-
-        </a>
-
-
-        <a href="#contact"
-           class="note-card">
-
-            <span>06</span>
-            <h3>BCS586</h3>
-            <p>Mini Project</p>
-            <strong>Coming Soon →</strong>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills" class="section">
-
-    <div class="section-heading">
-
-        <span>05 — SKILLS</span>
-
-        <h2>Technologies I work with.</h2>
-
-    </div>
-
+    <p class="section-description reveal">
+        Technologies and tools I'm learning and using while
+        building projects.
+    </p>
 
     <div class="skills-grid">
 
-        <div class="skill-box">
+        <div class="skill-card reveal">
+            <span class="skill-icon">🌐</span>
+            <h3>Web Development</h3>
+            <p>HTML • CSS • JavaScript • React</p>
+        </div>
 
-            <i class="fa-solid fa-code"></i>
-
+        <div class="skill-card reveal">
+            <span class="skill-icon">🐍</span>
             <h3>Programming</h3>
-
-            <p>C / C++ • Java • Python</p>
-
+            <p>Python • Java • C • JavaScript</p>
         </div>
 
-
-        <div class="skill-box">
-
-            <i class="fa-solid fa-globe"></i>
-
-            <h3>Web Development</h3>
-
-            <p>HTML • CSS • JavaScript • PHP</p>
-
+        <div class="skill-card reveal">
+            <span class="skill-icon">🤖</span>
+            <h3>AI / ML</h3>
+            <p>Machine Learning • OpenCV • Scikit-learn</p>
         </div>
 
-
-        <div class="skill-box">
-
-            <i class="fa-solid fa-database"></i>
-
+        <div class="skill-card reveal">
+            <span class="skill-icon">🗄️</span>
             <h3>Database</h3>
-
-            <p>MySQL • SQLite</p>
-
+            <p>MySQL • SQLite • SQL</p>
         </div>
 
-
-        <div class="skill-box">
-
-            <i class="fa-solid fa-brain"></i>
-
-            <h3>AI / ML</h3>
-
-            <p>Scikit-learn • Pandas • OpenCV</p>
-
+        <div class="skill-card reveal">
+            <span class="skill-icon">🔧</span>
+            <h3>Tools</h3>
+            <p>Git • GitHub • VS Code • XAMPP</p>
         </div>
 
-
-        <div class="skill-box">
-
-            <i class="fa-brands fa-github"></i>
-
-            <h3>Development</h3>
-
-            <p>Git • GitHub • GitHub Pages</p>
-
-        </div>
-
-
-        <div class="skill-box">
-
-            <i class="fa-solid fa-microchip"></i>
-
+        <div class="skill-card reveal">
+            <span class="skill-icon">⚡</span>
             <h3>IoT</h3>
-
-            <p>ESP32 • LoRa • OLED • Sensors</p>
-
+            <p>ESP32 • Sensors • OLED • LoRa</p>
         </div>
 
     </div>
@@ -875,99 +385,318 @@
 </section>
 
 
-<!-- ================= CURRENTLY BUILDING ================= -->
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
 
-<section class="building">
+<section class="section content-section" id="projects">
 
-    <div>
-
-        <span>CURRENTLY BUILDING</span>
-
-        <h2>Always learning.<br>Always building.</h2>
-
+    <div class="section-title reveal">
+        <span>04</span>
+        <h2>Projects</h2>
     </div>
 
-    <div class="building-list">
+    <p class="section-description reveal">
+        Some things I've built while learning and experimenting.
+    </p>
 
-        <span>Interactive Games</span>
-        <span>AI & Computer Vision</span>
-        <span>Web Applications</span>
-        <span>VTU Learning Resources</span>
-        <span>IoT Experiments</span>
+
+    <div class="projects-grid">
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">01</div>
+
+            <div class="project-icon">🏹</div>
+
+            <h3>ARROWHEAD</h3>
+
+            <p>
+                An interactive infinite logic puzzle game with
+                levels, lives, coins, diamonds and animated gameplay.
+            </p>
+
+            <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+            <a
+                href="https://mahalakshmikommaranahalli9-cell.github.io/arrowhead/"
+                target="_blank"
+                class="project-link"
+            >
+                Open Project →
+            </a>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">02</div>
+
+            <div class="project-icon">🎮</div>
+
+            <h3>ARROW // 19.09</h3>
+
+            <p>
+                A custom interactive game experience created with
+                multiple levels and a story-driven design.
+            </p>
+
+            <div class="project-tags">
+                <span>Game</span>
+                <span>JavaScript</span>
+                <span>PWA</span>
+            </div>
+
+            <a
+                href="https://mahalakshmikommaranahalli9-cell.github.io/arrow-19-09/"
+                target="_blank"
+                class="project-link"
+            >
+                Open Project →
+            </a>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">03</div>
+
+            <div class="project-icon">🌋</div>
+
+            <h3>Landslide Sentinel AI</h3>
+
+            <p>
+                AI-based early warning and landslide risk monitoring
+                system with risk prediction and alert concepts.
+            </p>
+
+            <div class="project-tags">
+                <span>Python</span>
+                <span>Flask</span>
+                <span>ML</span>
+            </div>
+
+            <a
+                href="https://mahalakshmikommaranahalli9-cell.github.io/Landslide-Sentinel-AI/"
+                target="_blank"
+                class="project-link"
+            >
+                Open Project →
+            </a>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">04</div>
+
+            <div class="project-icon">🛡️</div>
+
+            <h3>TRUST-VISION</h3>
+
+            <p>
+                A computer vision integrity assurance concept for
+                protecting data, models and inference outputs.
+            </p>
+
+            <div class="project-tags">
+                <span>AI</span>
+                <span>Cybersecurity</span>
+                <span>Blockchain</span>
+            </div>
+
+            <a
+                href="https://github.com/mahalakshmikommaranahalli9-cell"
+                target="_blank"
+                class="project-link"
+            >
+                View on GitHub →
+            </a>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">05</div>
+
+            <div class="project-icon">📝</div>
+
+            <h3>SmartForm</h3>
+
+            <p>
+                A smart form builder and publishing interface for
+                creating and managing digital forms.
+            </p>
+
+            <div class="project-tags">
+                <span>React</span>
+                <span>Vite</span>
+                <span>JavaScript</span>
+            </div>
+
+            <a
+                href="https://github.com/mahalakshmikommaranahalli9-cell"
+                target="_blank"
+                class="project-link"
+            >
+                View on GitHub →
+            </a>
+
+        </article>
+
+
+        <article class="project-card reveal">
+
+            <div class="project-number">06</div>
+
+            <div class="project-icon">🌱</div>
+
+            <h3>Smart Irrigation</h3>
+
+            <p>
+                IoT-based experiment using ESP32, soil moisture
+                sensing, OLED display and wireless communication.
+            </p>
+
+            <div class="project-tags">
+                <span>ESP32</span>
+                <span>IoT</span>
+                <span>LoRa</span>
+            </div>
+
+            <a
+                href="https://github.com/mahalakshmikommaranahalli9-cell"
+                target="_blank"
+                class="project-link"
+            >
+                View on GitHub →
+            </a>
+
+        </article>
 
     </div>
 
 </section>
 
 
-<!-- ================= ACHIEVEMENTS ================= -->
+<!-- =====================================================
+     VTU NOTES
+===================================================== -->
 
-<section id="achievements" class="section">
+<section class="section content-section" id="notes">
 
-    <div class="section-heading">
+    <div class="section-title reveal">
+        <span>05</span>
+        <h2>VTU Notes</h2>
+    </div>
 
-        <span>06 — ACHIEVEMENTS</span>
+    <p class="section-description reveal">
+        My 5th semester Computer Science Engineering study resources.
+    </p>
 
-        <h2>Learning through projects.</h2>
+    <div class="notes-grid">
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+            <span>BCS501</span>
+            <h3>Software Engineering</h3>
+            <p>Software Engineering and Project Management</p>
+        </a>
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+            <span>BCS502</span>
+            <h3>Computer Networks</h3>
+            <p>Computer Networks study materials</p>
+        </a>
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+            <span>BCS503</span>
+            <h3>Theory of Computation</h3>
+            <p>Finite Automata and theory notes</p>
+        </a>
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+            <span>BCS515B</span>
+            <h3>Artificial Intelligence</h3>
+            <p>AI concepts and study materials</p>
+        </a>
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+            <span>BCSL504</span>
+            <h3>Web Technology Lab</h3>
+            <p>Web technology practical resources</p>
+        </a>
+
+        <a
+            href="https://mahalakshmikommaranahalli9-cell.github.io/course-notes/BCS503/index.html"
+            target="_blank"
+            class="note-card reveal"
+        >
+            <span>BCS586</span>
+            <h3>Mini Project</h3>
+            <p>Mini project resources and ideas</p>
+        </a>
 
     </div>
 
+</section>
 
-    <div class="achievement-grid">
 
-        <div class="achievement">
+<!-- =====================================================
+     CURRENTLY BUILDING
+===================================================== -->
 
-            <strong>01</strong>
+<section class="section building-section">
 
-            <h3>Web Development</h3>
+    <div class="building-box reveal">
+
+        <div>
+
+            <span class="live-dot"></span>
+            <span class="building-label">CURRENTLY BUILDING</span>
+
+            <h2>
+                Learning. Building.
+                <span>Repeating.</span>
+            </h2>
 
             <p>
-                Built multiple websites, dashboards
-                and interactive web applications.
+                Always working on something new — from software
+                projects to experiments that turn ideas into reality.
             </p>
 
         </div>
 
-
-        <div class="achievement">
-
-            <strong>02</strong>
-
-            <h3>AI / ML</h3>
-
-            <p>
-                Developed machine-learning and
-                computer-vision project experiments.
-            </p>
-
-        </div>
-
-
-        <div class="achievement">
-
-            <strong>03</strong>
-
-            <h3>Game Development</h3>
-
-            <p>
-                Created interactive browser games
-                with JavaScript-based game logic.
-            </p>
-
-        </div>
-
-
-        <div class="achievement">
-
-            <strong>04</strong>
-
-            <h3>IoT Development</h3>
-
-            <p>
-                Worked with ESP32, LoRa, sensors
-                and OLED hardware components.
-            </p>
-
+        <div class="building-symbol">
+            ✦
         </div>
 
     </div>
@@ -975,112 +704,87 @@
 </section>
 
 
-<!-- ================= GITHUB ================= -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
-<section class="github-section">
+<section class="section contact-section" id="contact">
 
-    <div>
-
-        <span>OPEN SOURCE • PROJECTS • EXPERIMENTS</span>
-
-        <h2>Explore my work on GitHub.</h2>
-
-        <p>
-            Projects, experiments, websites, games
-            and development work are available on my
-            GitHub profile.
-        </p>
-
+    <div class="section-title reveal">
+        <span>06</span>
+        <h2>Let's Connect</h2>
     </div>
 
-    <a href="https://github.com/mahalakshmikommaranahalli9-cell"
-       target="_blank"
-       class="github-button">
-
-        Visit GitHub
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-    </a>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="section contact">
-
-    <div class="section-heading">
-
-        <span>07 — CONTACT</span>
-
-        <h2>Let's connect and build.</h2>
+    <div class="contact-box reveal">
 
         <p>
             Have an idea, project or opportunity?
-            Feel free to connect with me.
         </p>
 
-    </div>
+        <h2>
+            Let's build something
+            <span>interesting.</span>
+        </h2>
 
-
-    <div class="contact-links">
-
-        <a href="https://github.com/mahalakshmikommaranahalli9-cell"
-           target="_blank">
-
-            <i class="fa-brands fa-github"></i>
-
-            <div>
-                <small>GITHUB</small>
-                <strong>View my projects</strong>
-            </div>
-
+        <a
+            href="mailto:your-email@example.com"
+            class="btn primary-btn big-btn"
+        >
+            Send me an email ↗
         </a>
 
+        <div class="social-links">
 
-        <a href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
-           target="_blank">
+            <a
+                href="https://github.com/mahalakshmikommaranahalli9-cell"
+                target="_blank"
+            >
+                GitHub
+            </a>
 
-            <i class="fa-brands fa-linkedin"></i>
+            <a
+                href="https://www.linkedin.com/in/mahalakshmi-kommaranahalli-06aba0341/"
+                target="_blank"
+            >
+                LinkedIn
+            </a>
 
-            <div>
-                <small>LINKEDIN</small>
-                <strong>Connect with me</strong>
-            </div>
-
-        </a>
-
-
-        <a href="https://www.instagram.com/its_me_mahaaaa__/"
-           target="_blank">
-
-            <i class="fa-brands fa-instagram"></i>
-
-            <div>
-                <small>INSTAGRAM</small>
-                <strong>Follow me</strong>
-            </div>
-
-        </a>
+        </div>
 
     </div>
 
 </section>
 
+</main>
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    <div class="footer-logo">MK</div>
+    <div class="footer-logo">
+        M
+    </div>
 
     <p>
-        Designed & built by Mahalakshmi Kommaranahalli
+        Designed & built by
+        <strong>Mahalakshmi Kommaranahalli</strong>
     </p>
 
-    <small id="copyright"></small>
+    <p class="footer-small">
+        © <span id="year"></span> All rights reserved.
+    </p>
 
 </footer>
+
+
+<!-- BACK TO TOP -->
+
+<button id="topButton" class="top-button">
+    ↑
+</button>
 
 
 <script src="script.js"></script>
