@@ -1,259 +1,449 @@
 /* =========================================================
-   MAHALAKSHMI PORTFOLIO JAVASCRIPT
+   MAHALAKSHMI KOMMARANAHALLI
+   PORTFOLIO JAVASCRIPT
 ========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+    /* =====================================================
+       PAGE LOADER
+    ===================================================== */
 
-const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
+    const pageLoader = document.getElementById("pageLoader");
 
-if (menuBtn && navMenu) {
+    window.addEventListener("load", () => {
 
-    menuBtn.addEventListener("click", () => {
+        setTimeout(() => {
 
-        navMenu.classList.toggle("active");
+            if (pageLoader) {
+                pageLoader.classList.add("hide");
+            }
 
-        const icon = menuBtn.querySelector("i");
+            document.querySelectorAll(".reveal").forEach((element, index) => {
 
-        if (navMenu.classList.contains("active")) {
+                setTimeout(() => {
+                    element.classList.add("visible");
+                }, index * 80);
 
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-xmark");
+            });
 
-        } else {
-
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-
-        }
+        }, 500);
 
     });
 
-}
 
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
 
-/* =========================================================
-   CLOSE MOBILE MENU
-========================================================= */
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-document.querySelectorAll(".nav-link").forEach(link => {
+    if (menuToggle && navLinks) {
 
-    link.addEventListener("click", () => {
+        menuToggle.addEventListener("click", () => {
 
-        if (navMenu) {
-            navMenu.classList.remove("active");
-        }
+            navLinks.classList.toggle("open");
 
-        if (menuBtn) {
+            const icon = menuToggle.querySelector("i");
 
-            const icon = menuBtn.querySelector("i");
+            if (navLinks.classList.contains("open")) {
 
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Close menu"
+                );
 
-        }
+                if (icon) {
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-xmark");
+                }
 
-    });
+            } else {
 
-});
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open menu"
+                );
 
-
-/* =========================================================
-   ACTIVE NAVIGATION
-========================================================= */
-
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-link");
-
-function updateActiveNav() {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-
-    });
-
-}
-
-window.addEventListener("scroll", updateActiveNav);
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const revealElements = document.querySelectorAll(
-    ".section-heading, .about-text, .about-card, .education-card, .skill-card, .project-card, .achievement-card, .contact-text, .contact-card"
-);
-
-revealElements.forEach(element => {
-    element.classList.add("reveal");
-});
-
-
-const revealObserver = new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("show");
-
-                revealObserver.unobserve(entry.target);
+                if (icon) {
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+                }
 
             }
 
         });
 
-    },
-    {
-        threshold: 0.12
+
+        /* Close menu after clicking a link */
+
+        navLinks.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+                const icon = menuToggle.querySelector("i");
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open menu"
+                );
+
+                if (icon) {
+                    icon.classList.remove("fa-xmark");
+                    icon.classList.add("fa-bars");
+                }
+
+            });
+
+        });
+
     }
-);
 
 
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
+    /* =====================================================
+       THEME TOGGLE
+    ===================================================== */
 
+    const themeToggle = document.getElementById("themeToggle");
 
-/* =========================================================
-   THEME TOGGLE
-========================================================= */
+    if (themeToggle) {
 
-const themeBtn = document.getElementById("themeBtn");
+        const icon = themeToggle.querySelector("i");
 
-if (themeBtn) {
+        const savedTheme = localStorage.getItem("portfolio-theme");
 
-    themeBtn.addEventListener("click", () => {
+        if (savedTheme === "light") {
 
-        document.body.classList.toggle("light");
+            document.documentElement.setAttribute(
+                "data-theme",
+                "light"
+            );
 
-        const icon = themeBtn.querySelector("i");
+            document.body.classList.add("light");
 
-        if (document.body.classList.contains("light")) {
-
-            icon.classList.remove("fa-moon");
-            icon.classList.add("fa-sun");
-
-        } else {
-
-            icon.classList.remove("fa-sun");
-            icon.classList.add("fa-moon");
+            if (icon) {
+                icon.classList.remove("fa-moon");
+                icon.classList.add("fa-sun");
+            }
 
         }
 
-    });
 
-}
+        themeToggle.addEventListener("click", () => {
+
+            const isLight =
+                document.body.classList.contains("light");
+
+            if (isLight) {
+
+                document.body.classList.remove("light");
+
+                document.documentElement.removeAttribute(
+                    "data-theme"
+                );
+
+                localStorage.setItem(
+                    "portfolio-theme",
+                    "dark"
+                );
+
+                if (icon) {
+                    icon.classList.remove("fa-sun");
+                    icon.classList.add("fa-moon");
+                }
+
+            } else {
+
+                document.body.classList.add("light");
+
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    "light"
+                );
+
+                localStorage.setItem(
+                    "portfolio-theme",
+                    "light"
+                );
+
+                if (icon) {
+                    icon.classList.remove("fa-moon");
+                    icon.classList.add("fa-sun");
+                }
+
+            }
+
+        });
+
+    }
 
 
-/* =========================================================
-   PROJECT CARD TILT
-========================================================= */
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
 
-document.querySelectorAll(".project-card").forEach(card => {
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
-    card.addEventListener("mousemove", event => {
+    if ("IntersectionObserver" in window) {
 
-        const rect = card.getBoundingClientRect();
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
 
-        const x =
-            event.clientX - rect.left;
+                entries.forEach(entry => {
 
-        const y =
-            event.clientY - rect.top;
+                    if (entry.isIntersecting) {
 
-        const centerX =
-            rect.width / 2;
+                        entry.target.classList.add("visible");
 
-        const centerY =
-            rect.height / 2;
+                        observer.unobserve(entry.target);
 
-        const rotateX =
-            ((y - centerY) / centerY) * -3;
+                    }
 
-        const rotateY =
-            ((x - centerX) / centerX) * 3;
+                });
 
-        card.style.transform =
-            `perspective(700px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-5px)`;
+            },
+            {
+                threshold: 0.12
+            }
+        );
 
-    });
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+    } else {
+
+        revealElements.forEach(element => {
+
+            element.classList.add("visible");
+
+        });
+
+    }
 
 
-    card.addEventListener("mouseleave", () => {
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
 
-        card.style.transform = "";
+    const sections =
+        document.querySelectorAll("section[id]");
 
-    });
+    const navItems =
+        document.querySelectorAll(".nav-links a");
 
-});
+    const updateActiveNav = () => {
+
+        let currentSection = "";
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop - 150;
+
+            const sectionHeight =
+                section.offsetHeight;
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionTop + sectionHeight
+            ) {
+
+                currentSection = section.getAttribute("id");
+
+            }
+
+        });
+
+        navItems.forEach(link => {
+
+            link.classList.remove("active");
+
+            const href =
+                link.getAttribute("href");
+
+            if (href === `#${currentSection}`) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    };
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNav
+    );
+
+    updateActiveNav();
 
 
-/* =========================================================
-   SMOOTH INTERNAL LINKS
-========================================================= */
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    const backToTop =
+        document.getElementById("backToTop");
 
-    anchor.addEventListener("click", function (event) {
+    if (backToTop) {
 
-        const targetId =
-            this.getAttribute("href");
+        window.addEventListener("scroll", () => {
 
-        if (targetId === "#") return;
+            if (window.scrollY > 500) {
 
-        const target =
-            document.querySelector(targetId);
+                backToTop.classList.add("show");
 
-        if (target) {
+            } else {
 
-            event.preventDefault();
+                backToTop.classList.remove("show");
 
-            target.scrollIntoView({
+            }
+
+        });
+
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
                 behavior: "smooth"
             });
 
-        }
+        });
+
+    }
+
+
+    /* =====================================================
+       HERO IMAGE MOUSE MOVEMENT
+    ===================================================== */
+
+    const heroVisual =
+        document.querySelector(".hero-visual");
+
+    if (
+        heroVisual &&
+        window.matchMedia("(pointer: fine)").matches
+    ) {
+
+        heroVisual.addEventListener("mousemove", event => {
+
+            const rect =
+                heroVisual.getBoundingClientRect();
+
+            const x =
+                (event.clientX - rect.left) / rect.width - 0.5;
+
+            const y =
+                (event.clientY - rect.top) / rect.height - 0.5;
+
+            const imageRing =
+                heroVisual.querySelector(".image-ring");
+
+            if (imageRing) {
+
+                imageRing.style.transform =
+                    `translate(${x * 10}px, ${y * 10}px)`;
+
+            }
+
+        });
+
+
+        heroVisual.addEventListener("mouseleave", () => {
+
+            const imageRing =
+                heroVisual.querySelector(".image-ring");
+
+            if (imageRing) {
+
+                imageRing.style.transform =
+                    "translate(0, 0)";
+
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       DYNAMIC FOOTER YEAR
+    ===================================================== */
+
+    const copyright =
+        document.querySelector(".copyright");
+
+    if (copyright) {
+
+        copyright.textContent =
+            `© ${new Date().getFullYear()} Mahalakshmi Kommaranahalli. All rights reserved.`;
+
+    }
+
+
+    /* =====================================================
+       SMOOTH INTERNAL LINKS
+    ===================================================== */
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const targetId =
+                link.getAttribute("href");
+
+            if (
+                !targetId ||
+                targetId === "#"
+            ) {
+                return;
+            }
+
+            const target =
+                document.querySelector(targetId);
+
+            if (target) {
+
+                event.preventDefault();
+
+                const navbar =
+                    document.querySelector(".navbar");
+
+                const offset =
+                    navbar ? navbar.offsetHeight : 0;
+
+                const position =
+                    target.getBoundingClientRect().top +
+                    window.scrollY -
+                    offset;
+
+                window.scrollTo({
+                    top: position,
+                    behavior: "smooth"
+                });
+
+            }
+
+        });
 
     });
 
+
+    /* =====================================================
+       CONSOLE MESSAGE
+    ===================================================== */
+
+    console.log(
+        "✨ Mahalakshmi Kommaranahalli Portfolio loaded successfully."
+    );
+
 });
-
-
-/* =========================================================
-   CONSOLE MESSAGE
-========================================================= */
-
-console.log(
-    "%c Mahalakshmi Kommaranahalli Portfolio ",
-    "background:#9b5cff;color:white;padding:8px;border-radius:6px;font-weight:bold;"
-);
-
-console.log(
-    "Built with HTML, CSS and JavaScript 🚀"
-);
