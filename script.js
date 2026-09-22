@@ -1,119 +1,160 @@
 /* =========================================================
-   MAHALAKSHMI PORTFOLIO
+   MAHALAKSHMI PORTFOLIO JAVASCRIPT
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
-    const menuBtn = document.getElementById("menuBtn");
-    const navMenu = document.getElementById("navMenu");
+const menuButton = document.getElementById("menuButton");
 
-    if (menuBtn && navMenu) {
+const navMenu = document.getElementById("navMenu");
 
-        menuBtn.addEventListener("click", () => {
+const navLinks = document.querySelectorAll(".nav-link");
 
-            navMenu.classList.toggle("show");
+const themeToggle = document.getElementById("themeToggle");
 
-            const icon = menuBtn.querySelector("i");
-
-            if (navMenu.classList.contains("show")) {
-                icon.classList.remove("fa-bars");
-                icon.classList.add("fa-xmark");
-            } else {
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-            }
-
-        });
-
-        document.querySelectorAll(".nav-link").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navMenu.classList.remove("show");
-
-                const icon = menuBtn.querySelector("i");
-
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-
-            });
-
-        });
-
-    }
+const revealElements =
+    document.querySelectorAll(".reveal");
 
 
-    /* =====================================================
-       DARK MODE
-    ===================================================== */
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-    const themeBtn = document.getElementById("themeBtn");
+if (menuButton) {
 
-    if (themeBtn) {
+    menuButton.addEventListener("click", () => {
 
-        const savedTheme = localStorage.getItem("maha-theme");
+        navMenu.classList.toggle("open");
 
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark");
-        }
+        const icon =
+            menuButton.querySelector("i");
 
-        updateThemeIcon();
+        if (navMenu.classList.contains("open")) {
 
-        themeBtn.addEventListener("click", () => {
+            icon.classList.remove("fa-bars");
 
-            document.body.classList.toggle("dark");
-
-            localStorage.setItem(
-                "maha-theme",
-                document.body.classList.contains("dark")
-                    ? "dark"
-                    : "light"
-            );
-
-            updateThemeIcon();
-
-        });
-    }
-
-
-    function updateThemeIcon() {
-
-        if (!themeBtn) return;
-
-        const icon = themeBtn.querySelector("i");
-
-        if (document.body.classList.contains("dark")) {
-
-            icon.classList.remove("fa-moon");
-            icon.classList.add("fa-sun");
+            icon.classList.add("fa-xmark");
 
         } else {
 
-            icon.classList.remove("fa-sun");
-            icon.classList.add("fa-moon");
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
 
         }
+
+    });
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+========================================================= */
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navMenu.classList.remove("open");
+
+        const icon =
+            menuButton.querySelector("i");
+
+        if (icon) {
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+const savedTheme =
+    localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "light") {
+
+    document.body.classList.add("light");
+
+    updateThemeIcon();
+
+}
+
+
+function updateThemeIcon() {
+
+    if (!themeToggle) return;
+
+    const icon =
+        themeToggle.querySelector("i");
+
+    if (document.body.classList.contains("light")) {
+
+        icon.classList.remove("fa-moon");
+
+        icon.classList.add("fa-sun");
+
+    } else {
+
+        icon.classList.remove("fa-sun");
+
+        icon.classList.add("fa-moon");
+
     }
 
+}
 
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
 
-    const sections = document.querySelectorAll(".section");
+if (themeToggle) {
 
-    const observer = new IntersectionObserver(
-        entries => {
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("light");
+
+        const theme =
+            document.body.classList.contains("light")
+                ? "light"
+                : "dark";
+
+        localStorage.setItem(
+            "portfolio-theme",
+            theme
+        );
+
+        updateThemeIcon();
+
+    });
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+        (entries, observer) => {
 
             entries.forEach(entry => {
 
                 if (entry.isIntersecting) {
 
                     entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
 
                 }
 
@@ -125,129 +166,183 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
 
+revealElements.forEach(element => {
 
-    /* =====================================================
-       ACTIVE NAVIGATION
-    ===================================================== */
-
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    const sectionElements = document.querySelectorAll(
-        "main section[id]"
-    );
-
-    window.addEventListener("scroll", () => {
-
-        let current = "home";
-
-        sectionElements.forEach(section => {
-
-            const sectionTop = section.offsetTop - 180;
-
-            if (window.scrollY >= sectionTop) {
-                current = section.id;
-            }
-
-        });
-
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            if (link.getAttribute("href") === `#${current}`) {
-                link.classList.add("active");
-            }
-
-        });
-
-    });
-
-
-    /* =====================================================
-       SMOOTH BUTTON EFFECT
-    ===================================================== */
-
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-
-        link.addEventListener("click", event => {
-
-            const targetId = link.getAttribute("href");
-
-            if (!targetId || targetId === "#") return;
-
-            const target = document.querySelector(targetId);
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        });
-
-    });
-
-
-    /* =====================================================
-       MOUSE PARALLAX FOR DESKTOP
-    ===================================================== */
-
-    const imageArea = document.querySelector(".hero-image-area");
-
-    if (imageArea && window.innerWidth > 950) {
-
-        imageArea.addEventListener("mousemove", event => {
-
-            const rect = imageArea.getBoundingClientRect();
-
-            const x =
-                (event.clientX - rect.left) /
-                rect.width -
-                0.5;
-
-            const y =
-                (event.clientY - rect.top) /
-                rect.height -
-                0.5;
-
-            imageArea.style.transform =
-                `translate(${x * 8}px, ${y * 8}px)`;
-
-        });
-
-        imageArea.addEventListener("mouseleave", () => {
-
-            imageArea.style.transform = "translate(0,0)";
-
-        });
-
-    }
-
-
-    /* =====================================================
-       IMAGE ERROR FALLBACK
-    ===================================================== */
-
-    const profile = document.querySelector(".profile-image img");
-
-    if (profile) {
-
-        profile.addEventListener("error", () => {
-
-            profile.style.display = "none";
-
-            profile.parentElement.style.background =
-                "linear-gradient(135deg,#6c35ff,#168cff,#ef3fa9)";
-
-        });
-
-    }
+    revealObserver.observe(element);
 
 });
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+
+const sectionObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    const currentId =
+                        entry.target.getAttribute("id");
+
+                    navLinks.forEach(link => {
+
+                        link.classList.remove("active");
+
+                        if (
+                            link.getAttribute("href")
+                            === `#${currentId}`
+                        ) {
+
+                            link.classList.add("active");
+
+                        }
+
+                    });
+
+                }
+
+            });
+
+        },
+        {
+            rootMargin: "-35% 0px -55% 0px"
+        }
+    );
+
+
+sections.forEach(section => {
+
+    sectionObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   SMOOTH SCROLL
+========================================================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(anchor => {
+
+    anchor.addEventListener("click", function(event) {
+
+        const targetId =
+            this.getAttribute("href");
+
+        const target =
+            document.querySelector(targetId);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   SIGNATURE REPLAY
+   Plays when signature enters viewport
+========================================================= */
+
+const signatureArea =
+    document.querySelector(".signature-area");
+
+
+if (signatureArea) {
+
+    const signatureObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        const writing =
+                            document.querySelector(
+                                ".signature-writing"
+                            );
+
+                        const line =
+                            document.querySelector(
+                                ".signature-underline"
+                            );
+
+                        const caption =
+                            document.querySelector(
+                                ".signature-caption"
+                            );
+
+                        writing.style.animation =
+                            "none";
+
+                        line.style.animation =
+                            "none";
+
+                        caption.style.animation =
+                            "none";
+
+                        void writing.offsetWidth;
+
+                        void line.offsetWidth;
+
+                        void caption.offsetWidth;
+
+                        writing.style.animation =
+                            "signatureWrite 3.5s cubic-bezier(.65,0,.35,1) forwards";
+
+                        line.style.animation =
+                            "signatureLine 1.3s cubic-bezier(.65,0,.35,1) 3.8s forwards";
+
+                        caption.style.animation =
+                            "signatureCaption 1s ease 4.6s forwards";
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+
+    signatureObserver.observe(signatureArea);
+
+}
+
+
+/* =========================================================
+   CONSOLE
+========================================================= */
+
+console.log(
+    "%cMahalakshmi Portfolio",
+    "font-size:20px;font-weight:bold;"
+);
+
+console.log(
+    "%cBuilt with HTML, CSS & JavaScript.",
+    "font-size:12px;"
+);
